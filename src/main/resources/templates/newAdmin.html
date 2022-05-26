@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Admin Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        .container{
+            margin-left: 100px;
+            margin-top: 10px;
+        }
+        .box
+        {
+            color: black;
+            font-size: large;
+            margin-bottom: 10px ;
+        }
+        h3{
+            margin-bottom: 20px;
+        }
+        input
+        {
+            background-color : #F7F7F7!important;
+            color: blue;
+            height: 20px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            margin-left: 88px;
+            text-align: center;
+            width: 280px;
+        }
+        .btn
+        {
+            margin-top: 4px;
+            margin-left: 200px;
+            padding: 5px;
+            font-size: large;
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function to_close() {
+            console.log("work")
+            window.opener.location.reload();
+            tm.close();
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h3>New Admin Details</h3>
+    <form action="#" th:action="@{saveAdminInfo}" th:object="${data}">
+        <div class="box">
+            <label for="firstName"> Full Name
+                <input type="text" style="margin-left: 50px" class="input" th:field="*{name}" name="name" id="firstName" size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="qualification"> Qualification
+                <input style="margin-left: 31px" type="text" class="input" th:field="*{qualification}" name="qualification" id="qualification"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="dob">Date of Birth
+                <input style="margin-left: 31px; width: 280px" type="date" class="input" th:field="*{DOB}" name="dob" id="dob" size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="phn"> Mobile No
+                <input style="margin-left: 47px" minlength="10" maxlength="12" type="text" class="input"  th:field="*{phnNo}" name="phn" id="phn"  size="25px"   required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="address"> Address
+                <input style="margin-left: 67px" type="text" class="input"  th:field="*{address}" name="address" id="address"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="state"> State
+                <input style="margin-left: 92px" type="text" class="input" name="state"  th:field="*{state}" id="state"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="email"> E-Mail Id
+                <input style="margin-left: 62px; text-align: center" type="email" th:field="*{emailId}" name="emailId" id="email"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="aadhar"> Aadhar Id
+                <input style="margin-left: 56px" type="text" class="input"  th:field="*{aadharId}" name="aadhar" id="aadhar"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="pan"> PAN No
+                <input style="margin-left: 71px" type="text" class="input"  th:field="*{panId}" name="pan" id="pan"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="loginId"> Login Id
+                <input style="margin-left: 70px" type="text" class="input"  th:field="*{loginId}" name="loginId" id="loginId"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="password"> Password
+                <input style="margin-left: 60px" type="password" class="input"  th:field="*{password}" name="password" id="password"  size="25px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="joining"> Joining Date
+                <input style="margin-left: 30px; text-align: center"  type="text" th:field="*{joiningDate}" name="joiningDate" required  id="joining"  size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="availability"> Available or Not
+                <input style="margin-left:0; text-align: center; text-transform: lowercase" th:field="*{availability}" type="text" required  name="availability" id="availability"  size="25px">
+            </label>
+        </div>
+
+        <button class="btn" onclick="to_close()">Submit</button>
+    </form>
+</div>
+</body>

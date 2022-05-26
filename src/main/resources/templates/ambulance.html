@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ambulance Information</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .ambulance{
+            display: flex;
+        }
+        .container{
+            font-family: 'Gwendolyn', cursive;
+            margin-top: 50px;
+            font-weight: bold;
+        }
+        h4 {
+            margin-bottom: 30px;
+        }
+        .submit{
+            margin-top: 20px;
+            margin-left: 210px;
+        }
+        input{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            color: blue;
+            text-align: center;
+        }
+        .box{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="ambulance">
+    <div class="container">
+        <form action="#" th:action="@{/saveambulance}" method="post" th:object="${data}">
+            <h4>Add Ambulance Information</h4>
+            <div class="box">
+                <label for="no">Ambulance No
+                    <input style="margin-left: 42px" type="text" name="ambulanceNo" id="no" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="name">Driver Name
+                    <input style="margin-left: 53px" type="text" name="driverName" id="name" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="driverNumber">Driver Mobile No
+                    <input style="margin-left: 19px" type="text" name="driverPhn" id="driverNumber" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="address">Driver Address
+                    <input style="margin-left: 35px" type="text" name="driverAddress" id="address" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="Daadhar">Driver Aadhar No
+                    <input style="margin-left: 14px" type="text"  name="driverAadhar" id="Daadhar" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="Nursename">Nurse Name
+                    <input style="margin-left: 58px" type="text" name="nurseName" id="nurseName" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="number">Nurse Mobile No
+                    <input style="margin-left: 24px" type="text" name="nursePhn" id="number" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="state">Nurse Address
+                    <input style="margin-left: 39px" type="text" name="nurseAddress" id="state" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="aadhar">Nurse Aadhar No
+                    <input type="text" style="margin-left: 18px" name="nurseAadhar" id="aadhar" required>
+                </label>
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

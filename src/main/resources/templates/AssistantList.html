@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Assistant's Information</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: black;
+            color: #F0F8FF;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-weight: lighter;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="content-header">
+        <h1>Assistant's Information</h1>
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>E-Mail Id</td>
+            <td>Gender</td>
+            <td>DOB</td>
+            <td>Qualification</td>
+            <td>Specialization</td>
+            <td>Training Duration</td>
+            <td>Mobile Number</td>
+            <td>Aadhar Number</td>
+            <td>Pan Number</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Senior Doctor Name</td>
+            <td>Joining Date</td>
+            <td>Timings</td>
+            <td>Salary</td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.emailId}"></td>
+                <td th:text="${list.gender}"></td>
+                <td th:text="${list.dob}"></td>
+                <td th:text="${list.qualification}"></td>
+                <td th:text="${list.specialization}"></td>
+                <td th:text="${list.trainingDuration}"></td>
+                <td th:text="${list.mobileNo}"></td>
+                <td th:text="${list.aadharId}"></td>
+                <td th:text="${list.panId}"></td>
+                <td th:text="${list.address}"></td>
+                <td th:text="${list.city}"></td>
+                <td th:text="${list.state}"></td>
+                <td th:text="${list.doctorName}"></td>
+                <td th:text="${list.joiningDate}"></td>
+                <td th:text="${list.timings}"></td>
+                <td th:text="${list.salary}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

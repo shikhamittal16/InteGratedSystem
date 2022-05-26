@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Ambulance Details</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <h2>Ambulance Details</h2>
+    <div th:if="${msg}" class="successfull-msg">[[${msg}]]</div>
+    <div th:if="${msg2}" class="unsuccessful-msg">[[${msg2}]]</div>
+    <div class="card-info">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+        </div>
+        <div class="card-body">
+            <table class="filter-table">
+                <tr>
+                    <form th:action="@{searchByAmbulanceNumber}">
+                        <td>
+                            <input type="search" name="name" placeholder="Enter Ambulance No" class="form-control filters" required/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-right">
+                            <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                        </td>
+                    </form>
+                    <form th:action="@{back}">
+                        <td>
+                            <button class="btn btn-save">Back</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
+        <tr>
+            <td>Ambulance No</td>
+            <td>Driver Name</td>
+            <td>Driver MobileNo</td>
+            <td>Driver Address</td>
+            <td>Driver Aadhar No</td>
+            <td>Nurse Name</td>
+            <td>Nurse MobileNo</td>
+            <td>Nurse Address</td>
+            <td>Nurse Aadhar No</td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.ambulanceNo}"></td>
+                <td th:text="${list.driverName}"></td>
+                <td th:text="${list.driverPhn}"></td>
+                <td th:text="${list.driverAddress}"></td>
+                <td th:text="${list.driverAadhar}"></td>
+                <td th:text="${list.nurseName}"></td>
+                <td th:text="${list.nursePhn}"></td>
+                <td th:text="${list.nurseAddress}"></td>
+                <td th:text="${list.nurseAadhar}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

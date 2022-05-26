@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment List</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <h2>Appointment List</h2>
+    <div class="card-info">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+        </div>
+        <div class="card-body">
+            <table class="filter-table">
+                <tr>
+                    <form th:action="@{fetchAppointmentDataByFilter}">
+                        <td>
+                            <input type="search" name="patientName" placeholder="Enter Name" class="form-control filters" required/>
+                        </td>
+                        <td class="text-right">
+                            <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Age</td>
+            <td>Gender</td>
+            <td>Mobile No</td>
+            <td>Doctor Name</td>
+            <td>Department</td>
+            <td>Aadhar No</td>
+            <td>Date </td>
+            <td>Fees</td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.firstname}"></td>
+                <td th:text="${list.lastname}"></td>
+                <td th:text="${list.age}"></td>
+                <td th:text="${list.gender}"></td>
+                <td th:text="${list.phn}"></td>
+                <td th:text="${list.doctorname}"></td>
+                <td th:text="${list.department}"></td>
+                <td th:text="${list.aadharno}"></td>
+                <td th:text="${list.date}"></td>
+                <td th:text="${list.fees}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

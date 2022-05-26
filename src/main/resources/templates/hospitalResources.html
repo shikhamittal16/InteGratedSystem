@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management Resources</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        h2{
+            text-align: center;
+            color: darkred;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <h2>Hospital Management Resources </h2>
+    <div th:if="${msg}" class="successfull-msg">[[${msg}]]</div>
+    <div th:if="${msg2}" class="unsuccessful-msg">[[${msg2}]]</div>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
+        <tr>
+            <td>Resource Name</td>
+            <td>Quantity</td>
+            <td>Managed By</td>
+            <td>Contact No</td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.resourceName}"></td>
+                <td th:text="${list.quantity}"></td>
+                <td th:text="${list.managedBy}"></td>
+                <td th:text="${list.contactNo}"></td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

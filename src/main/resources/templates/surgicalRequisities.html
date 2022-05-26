@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Surgical Requisites</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src=
+                    "https://cdn.jsdelivr.net/npm/handsontable@8.2.0/dist/handsontable.full.min.js">
+    </script>
+
+    <link href=
+                  "https://cdn.jsdelivr.net/npm/handsontable@8.2.0/dist/handsontable.full.min.css"
+          rel="stylesheet" media="screen">
+    <script th:src="surgicalRequisities.js"></script>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="content-header">
+        <h2 style="color:#000">Surgical Requisites Product Details</h2>
+    </div>
+    <div class="card-info">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+        </div>
+        <div class="card-body">
+            <table  class="filter-table">
+                <tr>
+                    <td>
+                        <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control filters"/>
+                    </td>
+                    <td>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="Enter Expiry Date" class="form-control filters"/>
+                    </td>
+                    <td class="text-right" style="white-space: nowrap">
+                        <button  id="fetchData" type="button" class="btn btn-save">Apply</button>
+                        <button  id="addData" type="button" class="btn btn-save">Add</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="card card-outline card-info">
+    <div class="card-body">
+        <div id="hot" style="height: 73vh; width:100%; overflow: hidden;"></div>
+    </div>
+</div>
+</body>
+</html>

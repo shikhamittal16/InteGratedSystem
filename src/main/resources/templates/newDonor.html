@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Information</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: 'Gwendolyn', cursive;
+        }
+        .container{
+            position: fixed;
+            text-align: right;
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+        .box{
+            margin: 10px;
+        }
+        h2{
+            margin: 50px;
+        }
+        .submit {
+            margin-top: 15px;
+            margin-left: 40px;
+            display: inline-block;
+        }
+        .btn{
+            position: absolute;
+            top: 90%;
+            left: 75%;
+        }
+        .donor{
+            display: flex;
+        }
+        .img{
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="donor">
+    <div class="img">
+        <img height="600" src="http://www.penbaypilot.com/sites/default/files/2015/03/field/image/donate_blood%20small.png">
+    </div>
+    <div class="container">
+        <form action="#" th:action="@{/saveDonorDetails}" method="post">
+            <h2>Blood Donor Details</h2>
+            <div class="box">
+                <label for="name">Donor Name :
+                    <input type="text" name="donorName" id="name" class="input" style="margin-left: 45px" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="age">Donor Age :
+                    <input type="text" name="donorAge" id="age" class="input" style="margin-left: 60px" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="date">Date :
+                    <input type="text" name="date" id="date" style="margin-left: 105px" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="phn">Mobile No :
+                    <input type="text" name="mobileNo" id="phn" style="margin-left: 64px" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="city">City :
+                    <input type="text" name="city" id="city" style="margin-left: 110px"  required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="group">Donor Blood Group :
+                    <input type="text" name="donorBloodGroup" id="group"required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="quantity">Quantity :
+                    <input type="text" name="quantity" id="quantity" style="margin-left: 70px" required>
+                </label>
+            </div>
+            <button class="submit">Submit</button>
+        </form>
+        <form th:action="@{back}">
+            <div class="btn">
+                <button class="submit">Back</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

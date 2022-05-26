@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor's Informations</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: rgb(32,178,170);
+            color: #F0F8FF;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: lighter;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <div class="content-header">
+        <h1>Assistant & Nurse Details</h1>
+    </div>
+<div class="card-body">
+    <table class="filter-table">
+        <tr>
+            <form th:action="@{fetchAssistantDetailsByFilter}">
+                <td>
+                    <input type="search" name="doctorName" placeholder="Enter Doctor Name" class="form-control filters" required/>
+                </td>
+                <td class="text-right">
+                    <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                </td>
+            </form>
+        </tr>
+    </table>
+</div>
+    <table>
+        <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Mobile Number</th>
+            <th>Qualification</th>
+            <th>Specialization</th>
+            <th>E-Mail Id</th>
+            <th>Aadhar Number</th>
+            <th>Pan Card Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Available or Not</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.mobileNumber}"></td>
+                <td th:text="${list.qualification}"></td>
+                <td th:text="${list.specialization}"></td>
+                <td th:text="${list.emailId}"></td>
+                <td th:text="${list.aadharNo}"></td>
+                <td th:text="${list.panCardNumber}"></td>
+                <td th:text="${list.address}"></td>
+                <td th:text="${list.city}"></td>
+                <td th:text="${list.state}"></td>
+                <td th:text="${list.availability}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

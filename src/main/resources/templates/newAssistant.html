@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Assistant</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: 'Gwendolyn', cursive;
+            background-size: cover;
+            background-color : #F7F7F7!important;
+        }
+        .container{
+            display: inline-block;
+            margin-left: 40px;
+            margin-right: 40px;
+            padding-right: 60px;
+            padding-left: 60px;
+            font-size: small;
+        }
+        .box
+        {
+            font-size: large;
+        }
+        h3{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input
+        {
+            background-color : #F7F7F7!important;
+            color: blue;
+            height: 20px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            margin-left: 88px;
+            text-align: center
+        }
+        .btn
+        {
+            margin-top: 10px;
+            margin-left: 230px;
+            padding: 9px;
+            font-size: large;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            color: black;
+        }
+        .btn2{
+            float: right;
+            margin-top: 2px;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: 1px solid black;
+            color: black;
+            background: transparent;
+            width: 80px;
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/assistantOrNurseInfoSave}" method="post" th:object="${data}">
+    <div th:if="${msg}" class="alert alert-success text-center">[[${msg}]]</div>
+    <div th:if="${msg2}" class="alert alert-danger text-center">[[${msg2}]]</div>
+    <div class="container">
+        <h3>New Assistant Details</h3>
+        <input type="hidden" th:field="*{emailId}">
+        <div class="box">
+            <label for="Name"> Name
+                <input style="" type="text" class="input" name="name" id="Name" th:field="*{name}" required size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="Name">Senior Name
+                <input style="margin-left: 30px" type="text" class="input" name="seniorName" id="seniorName" th:field="*{seniorName}" required size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="Name">Training Duration
+                <input style="margin-left:0" type="text" class="input" name="trainingPeriod" id="trainingPeriod" th:field="*{trainingPeriod}" required size="24px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="dob"> Date of Birth
+                <input  style="margin-left: 22px; width: 320px; text-align: center" type="date" th:field="*{dob}" name="DOB" id="dob" required size="25px" >
+            </label>
+        </div>
+        <div class="box">
+            <label for="gender"> Gender
+                <input style="margin-left: 74px; text-align: center" type="text" th:field="*{gender}" name="gender" id="gender"  required size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="Phn"> Mobile No
+                <input style="margin-left: 50px; text-align: center" type="text"  th:field="*{mobileNo}" name="phnNo" id="Phn"  size="25px" maxlength="10" minlength="10" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="email"> E-Mail Id
+                <input style="margin-left: 56px; text-align: center" type="email" th:field="*{emailId}" name="emailId" id="email"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="aadhar"> Aadhar No
+                <input style="margin-left: 46px; text-align: center" type="text" th:field="*{aadharId}" name="aadharId" id="aadhar"  size="25px"  maxlength="12" minlength="12" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="pan"> PAN No
+                <input style="margin-left: 69px; text-align: center" type="text"  th:field="*{panId}" name="panId" id="pan"  size="25px" maxlength="10" minlength="10" required>
+            </label>
+        </div>
+
+        <div class="box">
+            <label for="address"> Address
+                <input style="margin-left: 64px; text-align: center" type="text"  th:field="*{address}" name="address" id="address" required  size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="city"> City
+                <input style="margin-left: 100px; text-align: center" type="text"th:field="*{city}" name="city" id="city" required  size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="state"> State
+                <input style="margin-left: 87px; text-align: center" type="text" th:field="*{state}" name="city" id="state"  required size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="qualification"> Qualification
+                <input style="margin-left: 28px; text-align: center" type="text" th:field="*{qualification}" name="qualification" id="qualification"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="specialization"> Specialization
+                <input style="margin-left: 19px; text-align: center" type="text"  th:field="*{specialization}" name="specialization" id="specialization"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="joining"> Joining Date
+                <input style="margin-left: 30px; text-align: center"  type="text" th:field="*{joiningDate}" name="joiningDate" required  id="joining"  size="25px">
+            </label>
+        </div>
+        <div class="box">
+            <label for="timings"> Timings
+                <input style="margin-left: 72px; text-align: center; text-transform: lowercase" th:field="*{timings}" type="text" required  name="timings" id="timings"  size="25px">
+            </label>
+        </div>
+        <button class="btn">Submit</button>
+    </div>
+</form>
+<form th:action="@{back}">
+    <button class="btn2">&#8592;Back</button>
+</form>
+</body>
+</html>

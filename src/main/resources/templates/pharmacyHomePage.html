@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Pharmacy</title>
+    <style>
+        .navbar {
+            background-color: rgb(217,217,214);
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 1425px;
+            padding: 6px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+        }
+
+        .navbar li {
+            list-style: none;
+            margin: 15px 15px;
+            font-size: large;
+            cursor: pointer;
+        }
+
+        .navbar li a {
+            padding: 1px 1px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navbar li a:hover {
+            color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li style="float: right"><a th:href="@{dispensing}">Dispensing of Drugs</a></li>
+            <li style="float: right"><a href="#">Orders</a></li>
+            <li style="float: right"><a th:href="@{otherProducts}">Other Products</a> </li>
+            <li style="float: right"><a th:href="@{surgicalRequisites}">Surgical requisites Products</a> </li>
+            <li style="float: right"><a th:href="@{medicinelist}">Medicines</a></li>
+            <li style="font-weight: bolder;font-size: x-large;color: white;text-shadow: 0 0 3px black, 0 0 5px black;;display: inline-block; margin-top: 0px">Pharmacy</li>
+        </ul>
+    </nav>
+</header>
+</body>

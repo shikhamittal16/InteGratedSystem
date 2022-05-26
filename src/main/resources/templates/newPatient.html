@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>New Patient Details</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        .container{
+            text-align: center;
+        }
+        .box {
+            padding: 5px;
+            margin-top: 10px;
+        }
+        select{
+            margin: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            color: blue;
+            width: 25%;
+            background-color : #F7F7F7!important;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            color: blue;
+            width: 25%;
+            background-color : #F7F7F7!important;
+        }
+        .btn {
+            margin-top: 10px;
+            margin-left: 170px;
+            padding-right: 14px;
+            padding-left: 14px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: medium;
+            background-color: whitesmoke;
+            border: 1px solid black;
+            color: black;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+         function submit(){
+             $.ajax({
+                url : "savePatient",
+                type : 'GET',
+                 data : {
+                     fullname : $('#fullname').val(),
+                     age : $('#age').val(),
+                     gender : $('#gender').val(),
+                     phn : $('#phn').val(),
+                     doctorname : $('#doctor').val(),
+                     department : $('#dept').val(),
+                     bloodgroup : $('#bloodgroup').val(),
+                     bloodpressure : $('#bloodpressure').val(),
+                     bloodsugar : $('#bloodsugar').val(),
+                     patientcondition : $('#condition').val(),
+                     aadhar : $('#aadhar').val(),
+                 },
+                 success : function(data) {
+                     if (data === "success") {
+                         swal({
+                             title: "Success !",
+                             text: "Details has been saved successfully ",
+                             icon: "success",
+                             button: "OK !",
+                         });
+                     }else if(data === "exist"){
+                         swal({
+                             text: "Patient Details already exist ..",
+                             button: "OK !",
+                         });
+                     } else if(data === "incomplete"){
+                         swal({
+                             title: "Error !",
+                             text: "Please fill all mandatory Details.",
+                             button: "OK !",
+                         });
+                     } else {
+                         swal({
+                             title: "Error !",
+                             text: "Please try Again .",
+                             button: "OK !",
+                         });
+                     }
+                 }
+             });
+         }
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="content-header">
+        <h1>Patient Details</h1>
+    </div>
+    <div class="box">
+        <label for="fullname"> Full Name
+            <input type="text" style="margin-left: 70px" id="fullname" required>
+        </label>
+    </div>
+    <div class="box">
+        <label for="age"> Age
+            <input style="margin-left: 119px" type="text" id="age" required>
+        </label>
+    </div>
+    <div class="box">
+        <label for="gender">Gender</label>
+        <select id="gender" style="margin-left: 96px" required>
+            <option value="Not Selected" selected style="color: black; font-size: medium">Select Gender</option>
+            <option value="male" style="color: black; font-size: medium">Male</option>
+            <option value="female" style="color: black; font-size: medium">Female</option>
+            <option value="other" style="color: black; font-size: medium">Other</option>
+        </select>
+    </div>
+    <div class="box">
+        <label for="phn"> Mobile No
+            <input style="margin-left: 78px" minlength="10" maxlength="12" type="text" id="phn" size="34px"  required>
+        </label>
+    </div>
+    <div class="box">
+        <label for="aadhar"> Aadhar No
+            <input minlength="12" maxlength="12" style="margin-left: 82px" type="text" id="aadhar" size="34px"required>
+        </label>
+    </div>
+    <div class="box">
+        <label for="doctor"> Doctor Name
+            <input style="margin-left: 68px" type="text" id="doctor"  size="34px" required>
+        </label>
+    </div>
+    <div class="box">
+        <label for="dept">Department
+            <select id="dept" style="margin-left: 77px;" required>
+                <option value="Not Selected" style="selected">Select Department</option>
+                <option value="cardiology" style="font-size: small;color: black" >Cardiology</option>
+                <option value="Nephrology and Urology" style="font-size: small;color: black" >Nephrology and Urology</option>
+                <option value="Neurology" style="font-size: small;color: black" >Neurology</option>
+                <option value="Gastroenterology" style="font-size: small;color: black" >Gastroenterology</option>
+                <option value="Orthopedics" style="font-size: small;color: black" >Orthopedics</option>
+                <option value="Oncology" style="font-size: small;color: black" >Oncology</option>
+                <option value="Ophthalmologist" style="font-size: small;color: black" >Ophthalmologist</option>
+                <option value="otolaryngologist" style="font-size: small;color: black" >Otolaryngologist</option>
+            </select>
+        </label>
+    </div>
+    <div class="box">
+        <label for="bloodgroup">Blood Group</label>
+        <select id="bloodgroup" style="margin-left: 70px" required>
+            <option value="Not Selected" selected style="color: black; font-size: medium">Select Blood Group</option>
+            <option value="A+" style="color: black; font-size: medium">A+</option>
+            <option value="A-" style="color: black; font-size: medium">A-</option>
+            <option value="B+" style="color: black; font-size: medium">B+</option>
+            <option value="B-" style="color: black; font-size: medium">B-</option>
+            <option value="O+" style="color: black; font-size: medium">O+</option>
+            <option value="O-" style="color: black; font-size: medium">O-</option>
+            <option value="AB+" style="color: black; font-size: medium">AB+</option>
+            <option value="AB-" style="color: black; font-size: medium">AB-</option>
+        </select>
+    </div>
+    <div class="box">
+        <label for="bloodpressure">Blood Pressure</label>
+        <select id="bloodpressure" style="margin-left: 60px" required>>
+            <option value="Not Selected" selected style="color: black; font-size: medium">Blood Pressure</option>
+            <option value="normal" style="color: black; font-size: medium">Normal</option>
+            <option value="high" style="color: black; font-size: medium">High</option>
+            <option value="low" style="color: black; font-size: medium">Low</option>
+        </select>
+    <div class="box">
+        <label for="bloodsugar"> Blood Sugar
+            <input style="margin-left: 80px" type="text" id="bloodsugar"  size="35px">
+        </label>
+    </div>
+    <div class="box">
+        <label for="condition"> Patient Condition
+            <input style="margin-left: 50px" type="text" id="condition"  size="35px">
+        </label>
+    </div>
+    <button class="btn" onclick="submit()">Submit</button>
+</div>
+</div>
+</body>
+</html>

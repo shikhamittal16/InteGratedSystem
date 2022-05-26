@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment List</title>
+  <style>
+    body{
+      background-color : #F7F7F7!important;
+    }
+    h2{
+      text-align: center;
+      color: darkred;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="content-wrapper">
+  <h2>Nurse List</h2>
+  <div class="card-info">
+    <div class="card-header">
+      <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+    </div>
+    <div class="card-body">
+      <table class="filter-table">
+        <tr>
+          <form th:action="@{fetchByNurseName}">
+            <td>
+              <input type="search" name="nurseName" placeholder="Enter Name" class="form-control filters" required/>
+            </td>
+            <td class="text-right">
+              <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+            </td>
+          </form>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <table class="filter-table">
+    <thead style="background-color: lightgray">
+    <tr>
+      <td>Name</td>
+      <td>E-Mail Id</td>
+      <td>Gender</td>
+      <td>DOB</td>
+      <td>Qualification</td>
+      <td>Specialization</td>
+      <td>Mobile Number</td>
+      <td>Aadhar Number</td>
+      <td>Pan Number</td>
+      <td>Address</td>
+      <td>City</td>
+      <td>State</td>
+      <td>Doctor Name</td>
+      <td>Joining Date</td>
+      <td>Timings</td>
+      <td>Salary</td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="list : ${list}">
+      <tr>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.emailId}"></td>
+        <td th:text="${list.gender}"></td>
+        <td th:text="${list.dob}"></td>
+        <td th:text="${list.qualification}"></td>
+        <td th:text="${list.specialization}"></td>
+        <td th:text="${list.mobileNo}"></td>
+        <td th:text="${list.aadharId}"></td>
+        <td th:text="${list.panId}"></td>
+        <td th:text="${list.address}"></td>
+        <td th:text="${list.city}"></td>
+        <td th:text="${list.state}"></td>
+        <td th:text="${list.doctorName}"></td>
+        <td th:text="${list.joiningDate}"></td>
+        <td th:text="${list.timings}"></td>
+        <td th:text="${list.salary}"></td>
+      </tr>
+    </th:block>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

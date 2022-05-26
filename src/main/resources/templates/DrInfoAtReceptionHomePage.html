@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor's Informations</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: rgb(32,178,170);
+            color: #F0F8FF;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: lighter;
+            font-size: large;
+        }
+
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+<div class="content-header">
+    <h1>Doctor's Information</h1>
+</div>
+    <div th:if="${msg}" class="successfull-msg">[[${msg}]]</div>
+    <div th:if="${msg2}" class="unsuccessful-msg">[[${msg2}]]</div>
+    <div class="card-info">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+        </div>
+    <div class="card-body">
+        <table class="filter-table">
+            <tr>
+                <form th:action="@{searchDoctorByName}">
+                    <td>
+                        <input type="search" name="name" placeholder="Enter Doctor Name" class="form-control filters" required/>
+                    </td>
+                </form>
+                <form th:action="@{searchByDepartment}">
+                    <td>
+                        <div class="Input">
+                            <select name="department" id="dept"class="form-control filters" required>>
+                                <option value="Not Selected" style="font-size: small" selected>Search By Department</option>
+                                <option value="cardiology" style="font-size: small" >Cardiology</option>
+                                <option value="Nephrology and Urology" style="font-size: small" >Nephrology and Urology</option>
+                                <option value="Neurology" style="font-size: small" >Neurology</option>
+                                <option value="Gastroenterology" style="font-size: small" >Gastroenterology</option>
+                                <option value="Orthopedics" style="font-size: small" >Orthopedics</option>
+                                <option value="Oncology" style="font-size: small" >Oncology</option>
+                                <option value="Ophthalmologist" style="font-size: small" >Ophthalmologist</option>
+                                <option value="otolaryngologist" style="font-size: small" >Otolaryngologist</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="Input">
+                            <select name="department" id="issue"class="form-control filters" required>>
+                                <option value="Not Selected" style="font-size: small" selected>Search By Disorder</option>
+                                <option value="cardiology" style="font-size: small" >Heart Problem</option>
+                                <option value="Nephrology and Urology" style="font-size: small" >Kidney Problem</option>
+                                <option value="Neurology" style="font-size: small" >Nervous System Problem(headaches , multiple sclerosis , movement disorders. etc)</option>
+                                <option value="Gastroenterology" style="font-size: small" >Stomach Problem</option>
+                                <option value="Orthopedics" style="font-size: small" >Musculoskeletal Problem (Joints, Ligaments,Tendons etc)</option>
+                                <option value="Oncology" style="font-size: small" >Cancer</option>
+                                <option value="Ophthalmologist" style="font-size: small" >Eye Problem</option>
+                                <option value="otolaryngologist" style="font-size: small" >Ear / Nose / Throat Problem</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                    </td>
+                </form>
+                <form th:action="@{back}">
+                    <td>
+                        <button class="btn btn-save">Back</button>
+                    </td>
+                </form>
+            </tr>
+        </table>
+    </div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Doctor Name</th>
+        <th>Doctor Qualification</th>
+        <th>Doctor Specialization</th>
+        <th>Doctor Timings</th>
+        <th>Available or Not</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="list : ${doctorListForReceptionHomePage}">
+    <tr>
+        <td th:text="${list.name}"></td>
+        <td th:text="${list.qualification}"></td>
+        <td th:text="${list.specialization}"></td>
+        <td th:text="${list.timings}"></td>
+        <td th:text="${list.availability}"></td>
+    </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

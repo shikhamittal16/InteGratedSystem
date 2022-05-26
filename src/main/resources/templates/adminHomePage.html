@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Integrated Healthcare</title>
+    <style>
+        body{
+            background-image: url("https://wallpapercave.com/wp/wp6681966.png");
+            background-repeat: no-repeat ;
+            background-size: cover;
+        }
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 99%;
+            background-color: rgb(245,255,250);
+            padding: 6px;
+        }
+        .navbar ul {
+            overflow: auto;
+        }
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 15px 13px;
+            font-size: larger;
+            cursor: pointer;
+        }
+        .navbar li a {
+            padding: 3px 3px;
+            text-decoration: none;
+            color: black;
+        }
+        .navbar li a:hover {
+            color: red;
+        }
+        .sub-menu
+        {
+            display: none;
+        }
+        .navbar ul li:hover .sub-menu
+        {
+            display: block;
+            position: absolute;
+            background-color: white;
+            font-size: small;
+        }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function logout() {
+            swal({
+                title: "Are you sure?",
+                text: "Are You Sure You want to Logout ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.replace("login", "_self");
+                    } else {
+                        window.location.replace("home", "_self");
+                    }
+                });
+        }
+        function submit() {
+            swal({
+                title: "Success !",
+                text: "Admin Details has been saved successfully ",
+                icon: "success",
+                button: "OK !",
+            });
+        }
+
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar">
+        <ul>
+            <li>Doctor
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newDoctor}" style="cursor: pointer">Add New Doctor</a></li>
+                        <li><a th:href="@{DrList}">Doctor List</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>Receptionist
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newrecep}">Add New Receptionist</a></li>
+                        <li><a th:href="@{recepList}">Receptionist List</a></li>
+                    </ul>
+                </div></li>
+            <li><a th:href="@{patient_detail}">Patient List</a></li>
+            <li>Staff
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newStaff}">Add New Staff</a></li>
+                        <li><a th:href="@{staffList}">Staff List</a></li>
+                    </ul>
+                </div></li>
+            <li>Nurse
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newNurse}">Add New Nurse</a></li>
+                        <li><a th:href="@{nurseList}">Nurse List</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>Assistant
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newAssistant}">Add New Assistant</a></li>
+                        <li><a th:href="@{assistantList}">Assistant List</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>Blood Bank
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{newDonor}">Add New Donor</a></li>
+                        <li><a th:href="@{getDonorList}">Donor Details</a></li>
+                    </ul>
+                </div></li>
+            <li>Ambulance
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{getAmbulancePage}">Ambulance</a></li>
+                        <li><a th:href="@{getAmbulanceDetails}">Ambulance Details</a></li>
+                    </ul>
+                </div></li>
+            <li><a th:href="@{hospitalResources}">Hospital Resources</a></li>
+            <li>Reports</li>
+            <li><a th:href="@{pharmacy}">Pharmacy</a></li>
+            <li>Admin
+                <div class="sub-menu">
+                    <ul>
+                        <li><a th:href="@{myProfile}">My Profile</a></li>
+                        <li><a th:href="@{newAdmin}">Create New Admin</a></li>
+                        <li onclick="logout()" style="cursor: pointer">LoGout</li>
+                    </ul>
+                </div></li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

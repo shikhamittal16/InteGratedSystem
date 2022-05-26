@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .donorTable{
+            text-align: center;
+            margin-top: 50px;
+        }
+        /*.details{*/
+        /*    text-align: center;*/
+        /*}*/
+        .search{
+            display: inline-block;
+            margin-left: 50px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+        .details{
+            position: fixed;
+            display: inline-block;
+            margin-left: 1120px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            font-size: large;
+        }
+        .btn{
+            float: right;
+            margin-top: 40px;
+            margin-right: 10px;
+            border: 2px solid black;
+            color: black;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+<div class="details">
+    <a th:href="@{getBloodBankDetails}">Blood Bank Details</a>
+</div>
+<form th:action="@{back}">
+    <button class="btn">&#8592;Back</button>
+</form>
+<form th:action="@{donorsearch}">
+    <div class="search">
+        <input style="width: 300px;" type="search" name="donorName" placeholder="Search By Donor Name"  required>
+        <button class="submit">Search</button>
+    </div>
+</form>
+<div th:if="${msg}" class="alert alert-success text-center">[[${msg}]]</div>
+<div th:if="${msg2}" class="alert alert-danger text-center">[[${msg2}]]</div>
+<div class="donorTable">
+<table class="table table-bordered">
+    <thead style="background-color: gray">
+    <tr>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Date</td>
+        <td>Mobile No </td>
+        <td>City</td>
+        <td>Blood Group</td>
+        <td>Quantity</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="list : ${list}">
+        <tr>
+            <td th:text="${list.donorName}"></td>
+            <td th:text="${list.donorAge}"></td>
+            <td th:text="${list.date}"></td>
+            <td th:text="${list.mobileNo}"></td>
+            <td th:text="${list.city}"></td>
+            <td th:text="${list.donorBloodGroup}"></td>
+            <td th:text="${list.quantity}"></td>
+            <td><a th:href="@{'/deleteDonor/'+ ${list.id}}"> Delete</a></td>
+            <td><a th:href="@{'/generatecertificate/' + ${list.id}}">Get Certificate</a></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

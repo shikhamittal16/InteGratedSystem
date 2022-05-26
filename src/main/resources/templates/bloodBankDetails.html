@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Bank Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .container{
+            text-align: center;
+            margin-top: 100px;
+        }
+        .backbutton{
+            position: absolute;
+            margin-left: 1150px;
+            top: 0;
+        }
+        .btn2
+        {
+            border: 1px solid black;
+            color: black;
+            background-color: whitesmoke;
+            width: 70px;
+            font-size: large;
+            margin-top: 10px;
+        }
+        tr{
+            line-height: 95%;
+        }
+    </style>
+</head>
+<body>
+<div class="backbutton">
+    <form th:action="@{back}">
+        <button class="btn2">&#8592;Back</button>
+    </form>
+</div>
+<div class="container">
+    <table style="width:55%" class="table table-bordered">
+        <thead style="background-color: gray">
+        <tr>
+            <td>Blood Group</td>
+            <td>Total Quantity(litres)</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td style="color: black; " th:text="${list.bloodGroup}"></td>
+                <td style="color: black; " th:text="${list.quantity}"></td>
+                <td><a style="color: blue;" th:href ="@{'/details/'+ ${list.bloodGroup}}">Edit</a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

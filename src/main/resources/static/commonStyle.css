@@ -1,0 +1,85 @@
+.content-wrapper {
+    background-color : #F7F7F7!important;
+}
+
+.content-header{
+    padding-left:30px;
+    padding-right: 30px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+}
+
+.card-header {
+    padding-bottom: 2px;
+    padding-top: 2px;
+    padding-left: 30px;
+    background-color: lightgrey;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.filter-table , .filter-table tr {
+    width: 100%;
+}
+
+.filter-table tr td{
+    padding: 5px;
+    width: 16%;
+}
+
+.form-control {
+    width : 370px;
+    height : 25px;
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+    opacity: 1;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.btn-save {
+    overflow: hidden;
+    padding-left:3px;
+    padding-right:3px;
+    border-radius: 4px;
+    color : white;
+    background-color: #2A3F54;
+    border: 1px solid #808080;
+    letter-spacing: 1px;
+    font-size: 14px;
+    height: 32px;
+    width:105px;
+    display : inline-block;
+}
+
+.btn-save:hover {
+    color:white;
+    background-color: #148BA8;
+}
+
+.successfull-msg{
+    background-color: rgb(208,240,192);
+    text-align: center;
+    font-size: medium;
+    padding: 9px;
+}
+
+.unsuccessful-msg{
+    background-color: #fc6c85;
+    text-align: center;
+    font-size: medium;
+    padding: 9px;
+    color: white;
+}
+
+

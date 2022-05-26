@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 100%;
+        }
+
+        /*body {*/
+        /*    font-family: acumin-pro, system-ui, sans-serif;*/
+        /*    margin: 0;*/
+        /*    display: grid;*/
+        /*    grid-template-rows: auto 1fr auto;*/
+        /*    font-size: 14px;*/
+        /*    background-color: #f4f4f4;*/
+        /*    align-items: start;*/
+        /*    min-height: 100vh;*/
+        /*}*/
+
+        .footer {
+
+            display: flex;
+            flex-flow: row wrap;
+            padding: 30px 30px 20px 30px;
+            color: #2f2f2f;
+            background-color : #F7F7F7!important;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer > * {
+            flex:  1 100%;
+        }
+
+        .footer__addr {
+            margin-right: 1.25em;
+            margin-bottom: 2em;
+        }
+
+        .footer__addr h2 {
+            margin-top: 1.3em;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .nav__title {
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .footer address {
+            font-style: normal;
+            color: #999;
+            background-color : #F7F7F7!important;
+        }
+
+        .footer__btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            max-width: max-content;
+            background-color: rgb(33, 33, 33, 0.07);
+            border-radius: 100px;
+            color: #2f2f2f;
+            line-height: 0;
+            margin: 0.6em 0;
+            font-size: 1rem;
+            padding: 0 1.3em;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer li {
+            line-height: 2em;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer__nav {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .footer__nav > * {
+            flex: 1 50%;
+            margin-right: 1.25em;
+        }
+
+        .nav__ul a {
+            color: #999;
+        }
+
+        .nav__ul--extra {
+            column-count: 2;
+            column-gap: 1.25em;
+        }
+
+        .legal {
+            display: flex;
+            flex-wrap: wrap;
+            color: #999;
+        }
+
+        .legal__links {
+            display: flex;
+            align-items: center;
+        }
+
+        .heart {
+            color: #2f2f2f;
+        }
+
+        @media screen and (min-width: 24.375em) {
+            .legal .legal__links {
+                margin-left: auto;
+            }
+        }
+
+        @media screen and (min-width: 40.375em) {
+            .footer__nav > * {
+                flex: 1;
+            }
+
+            .nav__item--extra {
+                flex-grow: 2;
+            }
+
+            .footer__addr {
+                flex: 1 0px;
+            }
+
+            .footer__nav {
+                flex: 2 0px;
+            }
+        }
+
+        .container1{
+            background-image: url("https://media.istockphoto.com/photos/doctor-with-stethoscope-in-hand-on-hospital-background-medical-and-picture-id905863190?k=20&m=905863190&s=170667a&w=0&h=xXxQF1rFWznHBhaF_yTZNwRcRlXW2b-aXeXd4MalwjI=");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 500px;
+        }
+        .box{
+            border: 2px solid rgb(245,255,250);
+            border-radius: 15px;
+            padding: 25px;
+            float: left;
+            margin-top: 50px;
+            margin-left: 70px;
+            background-color: rgb(245,255,250);
+        }
+        h5{
+            color: darkblue;
+            margin-bottom: 17px;
+        }
+        .Input{
+            margin: 9px;
+        }
+        .submit{
+            margin-left: 7px;
+            width: 275px;
+        }
+        .boxes{
+            display: flex;
+            height: 250px;
+        }
+
+        .img1 {
+            padding: 10px;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            margin-top: 40px;
+        }
+        p{
+            width:1000px;
+            margin-left: 150px;
+        }
+        h4{
+            text-align: center;
+        }
+        .boxes3{
+            display: flex;
+            height: 400px;
+        }
+        .img3{
+            width: 700px;
+            height: 400px;
+            text-align: center;
+            background-color: rgb(240,240,240);
+        }
+        .btn{
+            float: right;
+            font-size: larger;
+            font-weight: bold;
+            margin-right: 60px;
+            color: white;
+            margin-top: 10px;
+            text-shadow: 2px 2px darkblue;
+        }
+        .container2{
+            margin-left: 60px;
+        }
+        .container4{
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+<div class="container1">
+    <form th:action="@{login}" method="post">
+        <div class="login">
+            <button class="btn">Login</button>
+        </div>
+    </form>
+    <form th:action="@{drInfoAtReceptionHomePage}" method="post">
+        <div class="doctorInfo">
+            <button class="btn">Doctor's Information </button>
+        </div>
+    </form>
+    <form action="#" th:action="@{saveOnlineAppointment}" method="post" th:object="${detail}">
+        <div class="box">
+            <h5 style="text-align: center;text-shadow: 0 0 3px white, 0 0 5px white; font-weight: bold">MAKE AN APPOINTMENT</h5>
+            <div class="Input">
+                <input type="text" name="firstName" placeholder="First Name" size="30px" style="text-align: center;color: green;border-radius: 10px; border: 1px solid blue" required>
+            </div>
+            <div class="Input">
+                <input type="text" name="lastName" placeholder="Last Name" size="30px"  style="text-align: center;color: green; border-radius: 10px; border: 1px solid blue" required>
+            </div>
+            <div class="Input">
+                <input type="text"  name="age" placeholder="Age" size="30px" style="text-align: center;color: green ;border-radius: 10px; border: 1px solid blue" required>
+            </div>
+            <div class="Input">
+                <input type="text" name="phn" placeholder="Mobile No" size="30px" style="text-align: center;color: green ;border-radius: 10px; border: 1px solid blue" minlength="10" maxlength="12" required>
+            </div>
+            <div class="Input">
+                <input type="text" name="doctorName" placeholder="Doctor Name" size="30px" style="text-align: center;color: green ;border-radius: 10px; border: 1px solid blue" required>
+            </div>
+            <div class="Input">
+                <select name="department" id="dept" style=" width: 260px ; text-align: center;color: green ;border-radius: 10px; border: 1px solid blue;padding: 4px" required>>
+                    <option value="Not Selected" style="font-size: small" selected>Select Department</option>
+                    <option value="cardiology" style="font-size: small" >Cardiology</option>
+                    <option value="Nephrology and Urology" style="font-size: small" >Nephrology and Urology</option>
+                    <option value="Neurology" style="font-size: small" >Neurology</option>
+                    <option value="Gastroenterology" style="font-size: small" >Gastroenterology</option>
+                    <option value="Orthopedics" style="font-size: small" >Orthopedics</option>
+                    <option value="Oncology" style="font-size: small" >Oncology</option>
+                    <option value="Ophthalmologist" style="font-size: small" >Ophthalmologist</option>
+                    <option value="otolaryngologist" style="font-size: small" >Otolaryngologist</option>
+                </select>
+            </div>
+            <div class="Input">
+                <input type="text" name="aadharNo" placeholder="Aadhar No" size="30px" style="text-align: center;color: green; border-radius: 10px; border: 1px solid blue" maxlength="12" minlength="12" required>
+            </div>
+            <button class="submit">Book Appointment</button>
+        </div>
+    </form>
+</div>
+<h1>Centres of Excellence</h1>
+<div class="container2">
+    <div class="boxes">
+        <div class="img1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1LZ5AOZC9Vp9cnYSuPBeji9fFSpn3wYBJY9WQAxbxUkLMxDAIFcF3SarOGGbpP__lgJk&usqp=CAU" width="140px" height="110px">
+            <h5>Cardiology</h5>
+        </div>
+        <div class="img1">
+            <img src="https://previews.123rf.com/images/arcady31/arcady311910/arcady31191000011/132555622-kidneys-and-bladder-logo-human-urinary-system-on-white-background.jpg" width="140px" height="110px">
+            <h5>Nephrology and Urology</h5>
+        </div>
+        <div class="img1">
+            <img src="https://media.istockphoto.com/vectors/human-brain-neurology-icon-in-trendy-thin-line-style-isolated-on-vector-id885265828" width="150px" height="110px">
+            <h5>Neurology</h5>
+        </div>
+        <div class="img1">
+            <img src="https://st2.depositphotos.com/2172301/6557/v/950/depositphotos_65575247-stock-illustration-gastroenterology-clinic-logo.jpg" width="150px" height="110px">
+            <h5>Gastroenterology</h5>
+        </div>
+        <div class="img1">
+            <img src="https://thumbs.dreamstime.com/b/human-bone-orthopedic-logo-concept-vector-bone-ray-image-human-joints-anatomy-skeleton-flat-design-template-illustration-159254789.jpg" width="150px" height="110px">
+            <h5>Orthopedics</h5>
+        </div>
+        <div class="img1">
+            <img src="https://media.istockphoto.com/vectors/cancer-cell-icon-vector-id1143575550?k=20&m=1143575550&s=612x612&w=0&h=BAMU6fcvO8LPDl-bG2qvi_838Zwsgo3RzGEKa1XrK5M=" width="150px" height="110px">
+            <h5>Oncology</h5>
+        </div>
+        <div class="img1">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.3ik3ucS__7wT2-SQvqkIHgAAAA&pid=Api&P=0&w=273&h=156" width="150px" height="110px">
+            <h5>Ophthalmologist</h5>
+        </div>
+    </div>
+</div>
+<!--<div class="container3">-->
+<!--    <h1>We are Covid Safe</h1>-->
+<!--    p>While these challenging times have brought many changes, at Integrated HealthCare one thing remained the same – Our commitment to the safety of our patients, their loved ones and our staff. We have established a safe environment and were among the first in the country to implement a range of rigorous protocols, which includes the following:</p>-->
+<!--    <div class="boxes2">-->
+<!--        <div class="img2">-->
+<!--            <h3>Extra Sanitation Methods</h3>-->
+<!--            Disinfecting all areas and frequently touched surfaces continuously/-->
+<!--        </div>-->
+<!--        <div class="img2">-->
+<!--            <h3>Social Distancing</h3>  <-->
+<!--            Following social distancing protocols by implementing limited visitations, new waiting room protocols and other measures so you can safely practice social distancing and keep yourself and others safe.-->
+<!--        </div>-->
+<!--        <div class="img2">-->
+<!--            <h3>Face Mask</h3>-->
+<!--            Mandating all patients and staff to wear face masks.-->
+<!--        </div>-->
+<!--        <div class="img2">-->
+<!--            <h3>Screening at the entrance</h3>-->
+<!--            Screening of all visitors, including patients upon arrival Screening all patients for COVID-19 symptoms upon arrival.-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="container4">
+    <div class="boxes3">
+        <div class="img3">
+            <img src="https://media.istockphoto.com/photos/female-doctor-comforts-her-young-patient-who-has-cancer-picture-id1165576018?k=20&m=1165576018&s=612x612&w=0&h=pXh2HFPKY0jKo0jJ57a5esMxt2kgDFqEljrbBbWyizg=" width="680px" height="395px">
+        </div>
+        <div class="img3">
+            <h1>Oncology</h1>
+            Cancer is a ruthless disease. It evolves constantly and spreads relentlessly. It's hard to catch and even harder to treat.
+
+            But that is about to change, with Precision Oncology. Integrated's unique approach to diagnosing, treating and monitoring cancer that is as precise as it can get.
+
+            Cancer is Conquerable. And you can conquer it too. With precision, with Integrated HealthCare. Stay a step ahead of cancer with Integrated HealthCare Cancer Centres.
+        </div>
+    </div>
+</div>
+<div class="container4">
+    <div class="boxes3">
+        <div class="img3">
+            <h1>Cardiology</h1>
+            The Integrated HealthCare Heart Institutes are regarded as one of the best heart hospitals in India, performing a multitude of treatments and procedures in cardiology and cardiothoracic surgery. The scorecard shows an unmatched record of over 1,52,000 cardiac and cardiothoracic surgeries.
+
+            We have vast experience in the most complicated coronary artery bypass surgery, surgery for all types of valvular heart diseases, paediatric heart surgery, adult and paediatric heart transplantation with success rates comparable to international standards.
+
+        </div>
+        <div class="img3">
+            <img src="https://previews.123rf.com/images/nyurausova/nyurausova1712/nyurausova171200097/92045995-red-heart-in-hands-of-the-little-girl-symbol-of-love-and-family-valentines-day-card-mothers-day-back.jpg" height="395" width="680">
+        </div>
+    </div>
+</div>
+<div class="container5">
+    <div class="boxes3">
+        <div class="img3">
+            <img src="https://us.123rf.com/450wm/natalimis/natalimis1906/natalimis190600018/124389556-a-medical-worker-shows-the-spine-on-blurred-background-.jpg?ver=6" width="680" height="395">
+        </div>
+        <div class="img3">
+            <h1>Orthopedics</h1>
+            The Integrated HealthCare Institutes of Orthopaedics is regarded as one of the best & top orthopaedics hospitals in India with a legacy of innovation and excellence. The Institutes are at the forefront in offering the latest in Orthopedic treatments and Orthopedic surgical advancements in India on par with the best centres in the world.
+
+            Integrated HealthCare offers key & best orthopedic surgeries and procedures in India. We perform bone and joint replacement surgeries which include the most current Arthroscopic and Reconstructive techniques.
+        </div>
+    </div>
+</div>
+<div class="container6">
+    <div class="boxes3">
+        <div class="img3">
+            <h1>Nephrology</h1>
+            Nephrology is a branch of medical science that deals with the diagnosis and treatment of disorders related to the kidney. Nephrology is a centre of excellence at Integrated and sees more than 10,000 patients every year. Integrated HealthCare houses some of the very best specialists in the world who specialize in management of kidney failure, dialysis, electrolyte disturbance, diabetic nephropathy, hypertension to kidney transplant. The transplant program is very active.Integrated HealthCare is your one-stop destination to book the best Nephrologists in your town.
+        </div>
+        <div class="img3">
+            <img src="https://ik.imagekit.io/iis/Monilek/department_nephrology_hTcHszxSA.jpg" width="680px" height="395px">
+        </div>
+    </div>
+</div>
+<div class="container6">
+    <div class="boxes3">
+        <div class="img3">
+            <img src="http://drsarangrote.com/myimg/NeuroSurgery.jpg" width="680" height="395">
+        </div>
+        <div class="img3">
+            <h1>Neurology</h1>
+            Neurology is a centre of excellence at Integrated HealthCare and deals with diagnosis and treatment of disorders of the nervous system. The Integrated Neuro departments are equipped with the best team and state of the art facilities like Neuro radiology, sleep lab, Intensive care units etc. Our Neuro team takes care of more than 300 variety of problems like aneurisms, dementia, Alzheimer’s, epilepsy, cerebro vascular diseases, headache, multiple sclerosis, stroke, Neuro oncology, neurophysiology, sleep neurology. The Apollo stroke program is a protocol based approach and is benchmarked with the best institutions in the world. Taking the best of care for your nervous system is an aspect whose importance cannot be underlined enough, so leave it to the Apollo eDoc.in portal to find the best neurologists for any challenge that befalls your nerves!
+        </div>
+    </div>
+</div>
+<div class="container7">
+    <div class="boxes3">
+        <div class="img3">
+            <h1>Gastroenterology</h1>
+            Gastroenterology deals with the diagnosis and treatment of complications of the gastrointestinal tract, i.e. the stomach and small intestine. A gastroenterologist deals with patients suffering from gastroenteritis, showing symptoms of vomiting, diarrhea, abdominal pain and cramping. With our Hospitals’ qualified bench strength of Gastroenterologists who are the best in their field, finest treatment is just around the corner. Experience a smoother medical experience for booking an appointment or finding the best gastroenterologists for world-class for your gastro-related problems at our Hospitals.
+        </div>
+        <div class="img3">
+            <img src="https://www.aarogyahospital.com/wp-content/uploads/2021/06/gasteroenterology.jpg" width="680" height="395">
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer__addr">
+        <h2>Contact Us</h2>
+
+        <address>
+            Sector 48 Gurgaon , Haryana<br>
+
+            <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+        </address>
+    </div>
+
+    <ul class="footer__nav">
+        <li class="nav__item">
+            <h2 class="nav__title">Media</h2>
+
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Online</a>
+                </li>
+
+                <li>
+                    <a href="#">Print</a>
+                </li>
+
+                <li>
+                    <a href="#">Alternative Ads</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav__item nav__item--extra">
+            <h2 class="nav__title">Technology</h2>
+
+            <ul class="nav__ul nav__ul--extra">
+                <li>
+                    <a href="#">Hardware Design</a>
+                </li>
+
+                <li>
+                    <a href="#">Software Design</a>
+                </li>
+
+                <li>
+                    <a href="#">Digital Signage</a>
+                </li>
+
+                <li>
+                    <a href="#">Automation</a>
+                </li>
+
+                <li>
+                    <a href="#">Artificial Intelligence</a>
+                </li>
+
+                <li>
+                    <a href="#">IoT</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav__item">
+            <h2 class="nav__title">Legal</h2>
+
+            <ul class="nav__ul">
+                <li>
+                    <a href="#">Privacy Policy</a>
+                </li>
+
+                <li>
+                    <a href="#">Terms of Use</a>
+                </li>
+
+                <li>
+                    <a href="#">Sitemap</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="legal">
+        <p>&copy; 2019 All rights reserved.</p>
+
+        <div class="legal__links">
+            <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

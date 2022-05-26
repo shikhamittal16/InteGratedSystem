@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certificate" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b630c66a-bb21-4058-a9c8-304940f59a7a">
+	<parameter name="donorName" class="java.lang.String"/>
+	<parameter name="date" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="25" width="558" height="58" forecolor="#FFFFFF" backcolor="#B04238" uuid="93a44bc3-2bf8-4205-a7e6-111759fdbd3e">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box topPadding="2" leftPadding="10" bottomPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="24"/>
+				</textElement>
+				<text><![CDATA[Integrated HealthCarE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="561" height="40" uuid="59f83947-683b-4433-ad07-ec98f7ad4edb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Algerian" size="24"/>
+				</textElement>
+				<text><![CDATA[CERTIFICATE OF DONAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="180" width="560" height="44" uuid="eedb1a24-6172-4353-9910-94d4c4e538d6">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="20"/>
+				</textElement>
+				<text><![CDATA[This Certificate has been awarded to]]></text>
+			</staticText>
+			<line>
+				<reportElement x="43" y="260" width="457" height="1" uuid="b64f37c4-c212-4c44-abe8-9849be40af0a"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="280" width="560" height="80" uuid="e54ff605-4ace-43fb-a8f5-c432a1859876"/>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="20"/>
+				</textElement>
+				<text><![CDATA[for his/her voluntary Blood Donation to this Blood Bank on]]></text>
+			</staticText>
+			<line>
+				<reportElement x="29" y="400" width="502" height="1" uuid="3ff9a03d-5c3a-4381-8cae-eb2d6fe4c273"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="420" width="561" height="120" uuid="62ff9584-33d6-4ba2-a72a-b1c5b51b9fc6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="20"/>
+				</textElement>
+				<text><![CDATA[This impressive contribution to the noble cause is highly appreciated .]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="676" width="335" height="30" uuid="468bf088-c4fe-4d34-aa2c-fe41fc44c6a6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Blood Transfusion Officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="705" width="335" height="55" uuid="8cb969a6-8916-463d-9956-5b117dd93c6f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="18"/>
+				</textElement>
+				<text><![CDATA[Integrated HealthCare Blood Bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="640" width="335" height="36" uuid="56b48041-b694-4101-8397-2d2719a21f7a"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Shikha Mittal]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="230" width="345" height="40" forecolor="#3333CC" uuid="b615949e-314c-436c-afbe-5fb9a6813d8f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="32"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{donorName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="360" width="340" height="50" forecolor="#3333CC" uuid="634b300a-f50a-41f8-88bc-4a61527a60f8"/>
+				<textElement textAlignment="Center">
+					<font fontName="Blackadder ITC" size="32"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="109" y="140" width="344" height="1" uuid="ec328b63-32b7-45b8-9923-dfc9129db98b"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

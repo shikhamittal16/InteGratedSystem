@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <style>
+        body{
+            background-image: url("http://academicmedicineblog.org/wp-content/uploads/2014/03/women-medicine-01-1024x635.png");
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        .navbar {
+            background-color: rgb(240,248,255);
+            padding: 6px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 99%;
+        }
+
+        .navbar ul {
+            overflow: auto;
+        }
+
+        .navbar li {
+            font-family: 'Gwendolyn', cursive;
+            list-style: none;
+            margin: 15px 15px;
+            font-size: larger;
+            cursor: pointer;
+        }
+
+        .navbar li a {
+            padding: 3px 3px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function logout() {
+            swal({
+                title: "Are you sure?",
+                text: "Are You Sure You want to Logout ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.replace("login", "_self");
+                    } else {
+                        window.location.replace("doctor", "_self");
+                    }
+                });
+        }
+
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <ul>
+        <li style="font-weight: bolder;font-size: x-large;color: darkblue;text-shadow: 0 0 3px white, 0 0 5px green;display: inline-block; margin-top: 0px">InteGrated HealthCaRe</li>
+        <li style=" float: right" onclick="logout()">LoGout</li>
+        <li style=" float: right"><a th:href="@{myProfile}"> My Profile</a></li>
+        <li style=" float: right"><a th:href="@{patient_detail}"> Patient List</a></li>
+        <li style=" float: right"><a th:href="@{doctorAssistantDetails}"> Assistant & Nurse Details</a></li>
+        <li style=" float: right"><a th:href="@{medicinelist}"> Medicines List</a></li>
+        <li style=" float: right"><a th:href="@{app_details}">Appointment List</a></li>
+    </ul>
+</nav>
+</body>
+</html>

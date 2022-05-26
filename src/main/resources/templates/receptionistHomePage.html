@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <style>
+        body{
+            background-image: url("https://i.pinimg.com/originals/cb/f6/b4/cbf6b446a7ffff71e73a58256d1af5a9.jpg");
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        .navbar {
+            background-color: rgb(217,217,214);
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 99%;
+            padding: 6px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+        }
+
+        .navbar li {
+            font-family: 'Gwendolyn', cursive;
+            list-style: none;
+            margin: 15px 15px;
+            font-size: large;
+            cursor: pointer;
+        }
+
+        .navbar li a {
+            padding: 1px 1px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .navbar li a:hover {
+            color: darkgreen;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function logout() {
+            swal({
+                title: "Are you sure?",
+                text: "Are You Sure You want to Logout ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.replace("login", "_self");
+                    } else {
+                        window.location.replace("reception", "_self");
+                    }
+                });
+        }
+    </script>
+</head>
+<body>
+<nav class="navbar">
+    <ul>
+        <li style="font-weight: bolder;font-size: x-large;color: white;text-shadow: 0 0 3px black, 0 0 5px black;display: inline-block; margin-top: 0px">InteGrated HealthCaRe</li>
+        <li style="float:right" onclick="logout()">Logout</li>
+        <li style="float: right"><a th:href="@{patient_detail}">Patient List</a> </li>
+        <li style="float: right"><a th:href="@{newPatient}">Add Patient</a></li>
+        <li style="float: right"><a th:href="@{app_details}">Appointment List</a></li>
+        <li style="float:right"><a th:href="@{newAppointment}">Add Appointment</a></li>
+        <li style="float:right"><a th:href="@{drInfoAtReceptionHomePage}"> Doctor's Information</a></li>
+    </ul>
+</nav>
+</body>
+</html>

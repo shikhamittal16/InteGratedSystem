@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>InteGrated HealthCare Pharmacy</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .container{
+            font-size: large;
+            margin-top: 50px;
+        }
+        .box{
+            margin: 20px;
+        }
+        .submit{
+            width: 120px;
+            background-color: whitesmoke;
+            margin-left: 300px;
+            border: 1px solid black;
+        }
+        input{
+            border-bottom: 1px solid black;
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <h2>Add Medicines</h2>
+            <div class="box">
+                <label for="medicine"> Medicine Name
+                    <input  style="margin-left: 64px" type="text" name="medicine" id="medicine" required size="35px">
+                </label>
+            </div>
+            <div class="box">
+                <label for="quantity"> Quantity
+                    <input style="margin-left: 120px" type="text" name="quantity" id="quantity" required size="35px">
+                </label>
+            </div>
+            <div class="box">
+                <label for="price"> Price(per tablet)
+                    <input style="margin-left: 64px" type="text" name="price" id="price" required size="35px">
+                </label>
+            </div>
+                <button  id="saveData" type="button" class="submit">Apply</button>
+    </div>
+</body>
+</html>

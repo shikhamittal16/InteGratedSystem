@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LoGin To YouR AccOunt</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            font-family: 'Gwendolyn', cursive;
+        }
+        .container{
+            position: fixed;
+            text-align: right;
+            margin-top: 50px;
+            margin-left: 100px;
+        }
+        .box{
+            margin: 10px;
+        }
+        h2{
+            margin: 50px;
+        }
+        .submit {
+            margin-top: 15px;
+            /*display: inline-block;*/
+            width: 260px;
+        }
+        .donor{
+            display: flex;
+        }
+        .img{
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="donor">
+    <div class="img">
+        <img height="676" width="780px" src="https://vignette.wikia.nocookie.net/inuyasha/images/4/45/Sogo_Hospital.png/revision/latest?cb=20140222033658">
+    </div>
+    <div class="container">
+        <div style="position: relative" th:if="${msg}" class="unsuccessful-msg">[[${msg}]]</div>
+        <form action="#" th:action="@{homePage}" method="post">
+            <div class="box">
+                <h2>Integrated Healthcare</h2>
+                <label for="name">Name :
+                    <input type="text" name="name" style="margin-left: 45px; text-transform: lowercase" id="name" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="loginId">LoGin ID :
+                    <input type="text" name="loginId" style="margin-left: 20px; text-transform: lowercase" id="loginId" required>
+                </label>
+            </div>
+            <div class="box">
+                <label for="pswrd">PaSSword :
+                    <input type="password" name="password" style="margin-left: 15px" id="pswrd" required>
+                </label>
+            </div>
+            <button class="submit">LoGin</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
