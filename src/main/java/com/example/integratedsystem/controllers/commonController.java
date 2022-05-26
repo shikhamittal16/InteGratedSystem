@@ -219,6 +219,12 @@ public class commonController {
         model.addAttribute("data" , repo2.findPatientById(id));
         return "newPatient.html";
     }
+
+    @RequestMapping("/assistantOrNurseInfoSave")
+    public String saveAssistantOrNurseInfo(){
+
+    }
+
 }
 
 

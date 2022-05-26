@@ -4,15 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Medicine Details</title>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src=
-                    "https://cdn.jsdelivr.net/npm/handsontable@8.2.0/dist/handsontable.full.min.js">
-    </script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    <link href=
-                  "https://cdn.jsdelivr.net/npm/handsontable@8.2.0/dist/handsontable.full.min.css"
-          rel="stylesheet" media="screen">
-    <script th:src="medicineList.js"></script>
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        body{
+            background-color : #F7F7F7!important;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+    </style>
 </head>
 <body>
 <div class="content-wrapper">
@@ -24,27 +33,54 @@
             <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
         </div>
         <div class="card-body">
-            <table  class="filter-table">
+            <table class="filter-table">
                 <tr>
-                    <td>
-                        <input type="text" id="medicineName" name="medicineName" placeholder="Enter Medicine Name" class="form-control filters"/>
-                    </td>
-                    <td>
-                        <input type="text" id="expiryDate" name="expiryDate" placeholder="Enter Expiry Date" class="form-control filters"/>
-                    </td>
-                    <td class="text-right" style="white-space: nowrap">
-                        <button  id="fetchData" type="button" class="btn btn-save">Apply</button>
-                        <button  id="addMedicine" type="button" class="btn btn-save">Add</button>
-                    </td>
+                    <form th:action="@{searchMedicineByName}">
+                        <td>
+                            <input type="search" name="name" placeholder="Enter Medicine Name" class="form-control filters" required/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-right">
+                            <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                        </td>
+                    </form>
+                    <form th:action="@{addMedicines}">
+                        <td>
+                            <button class="btn btn-save">Add Medicines</button>
+                        </td>
+                    </form>
+                    <form th:action="@{backToSpecificPage}">
+                        <td>
+                            <button class="btn btn-save">Back</button>
+                        </td>
+                    </form>
                 </tr>
             </table>
         </div>
     </div>
-    <div class="card card-outline card-info">
-        <div class="card-body">
-            <div id="hot" style="height: 73vh; width:100%; overflow: hidden;"></div>
-        </div>
-    </div>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
+        <tr>
+            <th>Medicine Name</th>
+            <th>Quantity</th>
+            <th>Manufacturing Year</th>
+            <th>Expiry Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="list : ${list}">
+            <tr>
+                <td th:text="${list.medicineName}"></td>
+                <td th:text="${list.quantity}"></td>
+                <td th:text="${list.manufactureDate}"></td>
+                <td th:text="${list.expiryDate}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
