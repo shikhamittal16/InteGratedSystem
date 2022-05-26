@@ -27,11 +27,26 @@
                 <tr>
                     <form th:action="@{fetchAppointmentDataByFilter}">
                         <td>
-                            <input type="search" name="patientName" placeholder="Enter Name" class="form-control filters" required/>
+                            <input type="search" name="patientName" placeholder="Enter Name" class="form-control filters"/>
                         </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td class="text-right">
                             <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
                         </td>
+                    </form>
+                        <form th:action="@{app_details}">
+                            <td>
+                                <button class="btn btn-save">All Appointments</button>
+                            </td>
+                        </form>
+                    <form th:action="@{backToSpecificPage}">
+                        <td class="text-right">
+                            <button  id="back" type="search" class="btn btn-save">Back</button>
+                    </td>
                     </form>
                 </tr>
             </table>

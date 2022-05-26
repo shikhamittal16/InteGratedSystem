@@ -98,7 +98,7 @@
             </div>
             <div class="box">
                 <label for="gender"> Gender
-                    <select name="gender" id="gender" style="margin-left: 77px ; width: 320px;" required>
+                    <select name="gender" id="gender" style="margin-left: 75px ; width: 320px;" required>
                         <option value="not selected" selected>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -118,7 +118,7 @@
             </div>
             <div class="box">
                 <label for="aadhar"> Aadhar No
-                    <input style="margin-left: 46px; text-align: center" type="text" th:field="*{aadharId}" name="aadharId" id="aadhar"  size="25px"  maxlength="12" minlength="12" required>
+                    <input style="margin-left: 44px; text-align: center" type="text" th:field="*{aadharId}" name="aadharId" id="aadhar"  size="25px"  maxlength="12" minlength="12" required>
                 </label>
             </div>
             <div class="box">
@@ -139,37 +139,47 @@
             </div>
             <div class="box">
                 <label for="state"> State
-                    <input style="margin-left: 87px; text-align: center" type="text" th:field="*{state}" name="city" id="state"  required size="25px">
+                    <input style="margin-left: 85px; text-align: center" type="text" th:field="*{state}" name="city" id="state"  required size="25px">
                 </label>
             </div>
             <div class="box">
                 <label for="qualification"> Qualification
-                    <input style="margin-left: 28px; text-align: center" type="text" th:field="*{qualification}" name="qualification" id="qualification"  size="25px" required>
+                    <input style="margin-left: 23px; text-align: center" type="text" th:field="*{qualification}" name="qualification" id="qualification"  size="25px" required>
                 </label>
             </div>
             <div class="box">
                 <label for="specialization"> Specialization
-                    <input style="margin-left: 19px; text-align: center" type="text"  th:field="*{specialization}" name="specialization" id="specialization"  size="25px" required>
+                <select name="specialization" id="specialization" style="width: 325px; margin-left: 16px">
+                    <option value="" style="font-size: small" selected>Specialization</option>
+                    <option value="cardiology" style="font-size: small" >Cardiology</option>
+                    <option value="Nephrology and Urology" style="font-size: small" >Nephrology and Urology</option>
+                    <option value="Neurology" style="font-size: small" >Neurology</option>
+                    <option value="Gastroenterology" style="font-size: small" >Gastroenterology</option>
+                    <option value="Orthopedics" style="font-size: small" >Orthopedics</option>
+                    <option value="Oncology" style="font-size: small" >Oncology</option>
+                    <option value="Ophthalmologist" style="font-size: small" >Ophthalmologist</option>
+                    <option value="otolaryngologist" style="font-size: small" >Otolaryngologist</option>
+                </select>
                 </label>
             </div>
             <div class="box">
                 <label for="joining"> Joining Date
-                    <input style="margin-left: 30px; text-align: center; width: 320px;"  type="date" th:field="*{joiningDate}" name="joiningDate" required  id="joining"  size="25px">
+                    <input style="margin-left: 25px; text-align: center; width: 320px;"  type="date" th:field="*{joiningDate}" name="joiningDate" required  id="joining"  size="25px">
                 </label>
             </div>
             <div class="box">
                 <label for="LoginId"> Login ID
-                    <input style="margin-left: 63px; text-align: center; text-transform: lowercase" th:field="*{loginId}" type="text" required  name="id" id="LoginId"  size="25px">
+                    <input style="margin-left: 60px; text-align: center; text-transform: lowercase" th:field="*{loginId}" type="text" required  name="id" id="LoginId"  size="25px">
                 </label>
             </div>
             <div class="box">
                 <label for="Password"> Password
-                    <input style="margin-left: 58px; text-align: center" type="password" th:field="*{password}" name="password" required id="Password"  size="25px"  minlength="6" maxlength="12">
+                    <input style="margin-left: 55px; text-align: center" type="password" th:field="*{password}" name="password" required id="Password"  size="25px"  minlength="6" maxlength="12">
                 </label>
             </div>
             <div class="box">
                 <label for="timings"> Timings
-                    <select name="timings" id="timings" style="width: 315px; margin-left: 71px" required>
+                    <select name="timings" id="timings" style="width: 315px; margin-left: 69px" required>
                         <option value="not selected">Not Selected</option>
                         <option value="9am - 5pm">9am - 5pm</option>
                         <option value="10am - 6pm">10am - 6pm</option>

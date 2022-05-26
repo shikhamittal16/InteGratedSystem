@@ -1,50 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
 <head>
     <meta charset="UTF-8">
     <title>Patient Details</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body{
             background-color : #F7F7F7!important;
         }
-        h2{
-            text-align: center;
-            color: darkred;
-            margin-bottom: 25px;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
         }
-        .search1{
-            display: inline-block;
-            margin-left: 180px;
-            margin-top: 10px;
-            margin-bottom: 20px;
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
-        .search2{
-            float: right;
-            margin-right: 180px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
     </style>
 </head>
 <body>
-    <h2>Patient List</h2>
-    <div class="search1">
-        <form th:action="@{patientSearch_1}">
-        <input type="search" name="phn" placeholder="Search By Mobile No" style="width: 400px; border: 1px solid black" required>
-        <button type="submit" style="border: 1px solid black">Search</button>
-        </form>
+<div class="content-wrapper">
+    <div class="content-header">
+        <h1>Patient Details</h1>
     </div>
-    <div class="search2">
-        <form th:action="@{patientSearch_2}">
-        <input type="search" name="aadhar" placeholder="Search By Aadhar No" style="width: 400px; border: 1px solid black" required>
-        <button type="submit" style="border: 1px solid black">Search</button>
-        </form>
+    <div th:if="${msg}" class="successfull-msg">[[${msg}]]</div>
+    <div th:if="${msg2}" class="unsuccessful-msg">[[${msg2}]]</div>
+    <div class="card-info">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fas fa-filter"></i>Filters</h3>
+        </div>
+        <div class="card-body">
+            <table class="filter-table">
+                <tr>
+                    <form th:action="@{patientSearch_2}">
+                        <td>
+                            <input type="search" name="aadhar" placeholder="Search By Aadhar Number" class="form-control filters"/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="text-right">
+                            <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                        </td>
+                    </form>
+                    <form th:action="@{patient_detail}">
+                        <td>
+                            <button class="btn btn-save">All Patients</button>
+                        </td>
+                    </form>
+                    <form th:action="@{backToSpecificPage}">
+                        <td>
+                            <button class="btn btn-save">Back</button>
+                        </td>
+                    </form>
+                </tr>
+            </table>
+        </div>
     </div>
-
-    <table class="table table-bordered" style="margin-top: 40px">
+    <table class="filter-table">
         <thead style="background-color: lightgray">
         <tr>
             <td>Full Name</td>
@@ -58,7 +78,6 @@
             <td>Blood Pressure</td>
             <td>Blood Sugar</td>
             <td>Patient Condition</td>
-            <td></td>
             <td></td>
         </tr>
         </thead>
@@ -76,11 +95,11 @@
                 <td th:text="${list.bloodpressure}"></td>
                 <td th:text="${list.bloodsugar}"></td>
                 <td th:text="${list.patientcondition}"></td>
-                <td>Edit</td>
-                <td>Delete</td>
+                <td><a th:href="@{'/editPatientDetails/'+ ${list.id}}">Edit</a></td>
             </tr>
         </th:block>
         </tbody>
     </table>
+</div>
 </body>
 </html>

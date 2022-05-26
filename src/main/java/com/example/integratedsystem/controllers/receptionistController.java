@@ -62,8 +62,9 @@ public class receptionistController {
     }
 
     @RequestMapping("/newPatient")
-    public String newPatient()
+    public String newPatient(Model model)
     {
+        model.addAttribute("data" , new Patient());
         return "newPatient.html";
     }
 
@@ -96,5 +97,10 @@ public class receptionistController {
     public String drInfoAtReceptionHomePage(Model model){
         model.addAttribute("list", repo3.findAll());
         return "DrInfoAtReceptionHomePage.html";
+    }
+
+    @RequestMapping("/backToReceptionPage")
+    public String backToReceptionPage(){
+       return "receptionistHomePage.html";
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"  xmlns:th="http://thymeleaf.org">
+<link rel="stylesheet" th:href="commonStyle.css">
 <head>
     <meta charset="UTF-8">
     <title>New Appointment</title>
@@ -42,9 +43,9 @@
             margin-left: 200px;
             padding: 9px;
             font-size: large;
-            background-color: whitesmoke;
+            background-color: black;
             border: 1px solid black;
-            color: black;
+            color: white;
         }
     </style>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
@@ -94,6 +95,11 @@
     </script>
 </head>
 <body>
+<form th:action="@{backToReceptionPage}">
+    <td>
+        <button class="btn-save">Back</button>
+    </td>
+</form>
         <div class="container">
             <h3>Add New Appointment</h3>
             <div class="box">

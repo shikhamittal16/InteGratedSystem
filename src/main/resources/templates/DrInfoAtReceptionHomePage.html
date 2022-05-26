@@ -22,15 +22,6 @@
 
         tr:nth-child(even){background-color: #f2f2f2}
 
-        th {
-            background-color: rgb(32,178,170);
-            color: #F0F8FF;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-weight: lighter;
-            font-size: large;
-        }
-
     </style>
 </head>
 <body>
@@ -81,11 +72,18 @@
                             </select>
                         </div>
                     </td>
+                    <td></td>
+                    <td></td>
                     <td class="text-right">
                         <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
                     </td>
                 </form>
-                <form th:action="@{back}">
+                <form th:action="@{drInfoAtReceptionHomePage}">
+                    <td>
+                        <button class="btn btn-save">All Doctors</button>
+                    </td>
+                </form>
+                <form th:action="@{backToReceptionPage}">
                     <td>
                         <button class="btn btn-save">Back</button>
                     </td>
@@ -94,8 +92,8 @@
         </table>
     </div>
 </div>
-<table>
-    <thead>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
     <tr>
         <th>Doctor Name</th>
         <th>Doctor Qualification</th>

@@ -11,4 +11,7 @@ public interface PatientRepo extends CrudRepository<Patient, Integer> {
 
     @Query("select u from Patient u where u.aadhar = ?1")
     Patient searchByAadhar(String aadhar);
+
+    @Query("select u from Patient u where u.id = ?1")
+    Patient findPatientById(Integer id);
 }

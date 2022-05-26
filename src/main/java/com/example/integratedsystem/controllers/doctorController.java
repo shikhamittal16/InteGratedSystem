@@ -28,8 +28,8 @@ public class doctorController {
     }
 
     @RequestMapping("/fetchAppointmentDataByFilter")
-    public String fetchAppointmentDataByFilter(@Param("patientName") String name , Model model){
-        model.addAttribute("list" , repo.findByName(name));
+    public String fetchAppointmentDataByFilter(@Param("patientName") String patientName , Model model){
+        model.addAttribute("list" , repo.findByName(patientName));
         return "appointmentDetails.html";
     }
 
