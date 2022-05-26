@@ -357,5 +357,11 @@ public class adminController {
         }
     }
 
+    @RequestMapping("/findAllReceptionist")
+    public String findAllReceptionist(Model model){
+        model.addAttribute("list" , repo7.searchAllReceptionist("receptionist"));
+        return "ReceptionistList.html";
+    }
+
 }
 

@@ -53,8 +53,21 @@ public class commonController {
 
     @RequestMapping("/patient_detail")
     public String getPatientDetail(Model model){
-        model.addAttribute("list", repo2.findAll());
-        return "patientDetails.html";
+        if(loginId != null) {
+            if (loginId.startsWith("recep")) {
+                model.addAttribute("list", repo2.findAll());
+                return "patientDetails.html";
+            } else if (loginId.startsWith("dr")) {
+                model.addAttribute("list", repo2.searchPatientByDoctorName(name));
+                return "patientDetails.html";
+            } else {
+                model.addAttribute("list", repo2.findAll());
+                return "patientDetails.html";
+            }
+        }
+        else{
+            return "loginPage.html";
+        }
     }
 
     @RequestMapping("patientSearch_1")
@@ -210,20 +223,20 @@ public class commonController {
             }
         }
         else {
-            return "login.html";
+            return "loginPage.html";
         }
     }
 
     @RequestMapping("/editPatientDetails/{id}")
     public String editPatientDetails(@PathVariable("id") Integer id , Model model){
         model.addAttribute("data" , repo2.findPatientById(id));
-        return "newPatient.html";
+        return "editPatientDetails.html";
     }
 
-    @RequestMapping("/assistantOrNurseInfoSave")
-    public String saveAssistantOrNurseInfo(){
-
-    }
+//    @RequestMapping("/assistantOrNurseInfoSave")
+//    public String saveAssistantOrNurseInfo(){
+//
+//    }
 
 }
 

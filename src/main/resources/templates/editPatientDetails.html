@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="commonStyle.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Patient Details</title>
+    <style>
+        body{
+            background-color : #F7F7F7!important;
+        }
+        .container{
+            text-align: center;
+        }
+        .box {
+            padding: 5px;
+            margin-top: 10px;
+        }
+        select{
+            margin: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            color: blue;
+            width: 25%;
+            background-color : #F7F7F7!important;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid black;
+            color: blue;
+            width: 25%;
+            background-color : #F7F7F7!important;
+            text-align: center;
+        }
+        .btn {
+            margin-top: 10px;
+            margin-left: 170px;
+            padding-right: 14px;
+            padding-left: 14px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: medium;
+            background-color: black;
+            border: 1px solid black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/editPatientInfo}" th:object="${data}">
+    <div class="container">
+        <div class="content-header">
+            <h1>Patient Details</h1>
+        </div>
+        <input type="hidden" th:field="*{id}">
+        <div class="box">
+            <label for="fullname"> Full Name
+                <input type="text" style="margin-left: 70px" id="fullname" name="fullname" th:field="*{fullname}" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="age"> Age
+                <input style="margin-left: 114px" type="text" id="age" name="age" th:field="*{age}" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="gender">Gender</label>
+            <select id="gender" style="margin-left: 90px" required name="gender" th:field="*{gender}">
+                <option value="Not Selected" selected style="color: black; font-size: medium">Select Gender</option>
+                <option value="male" style="color: black; font-size: medium">Male</option>
+                <option value="female" style="color: black; font-size: medium">Female</option>
+                <option value="other" style="color: black; font-size: medium">Other</option>
+            </select>
+        </div>
+        <div class="box">
+            <label for="phn"> Mobile No
+                <input style="margin-left: 68px" minlength="10" maxlength="12" name="phn" th:field="*{phn}" type="text" id="phn" size="34px"  required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="aadhar"> Aadhar No
+                <input minlength="12" maxlength="12" style="margin-left: 69px" type="text" name="aadhar" th:field="*{aadhar}" id="aadhar" size="34px"required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="doctor"> Doctor Name
+                <input style="margin-left: 58px" type="text" id="doctor" name="doctorname" th:field="*{doctorname}" size="34px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="dept">Department
+                <select id="dept" style="margin-left: 64px;"  name="department" th:field="*{department}" required>
+                    <option value="Not Selected" selected >Select Department</option>
+                    <option value="cardiology" style="font-size: small;color: black" >Cardiology</option>
+                    <option value="Nephrology and Urology" style="font-size: small;color: black" >Nephrology and Urology</option>
+                    <option value="Neurology" style="font-size: small;color: black" >Neurology</option>
+                    <option value="Gastroenterology" style="font-size: small;color: black" >Gastroenterology</option>
+                    <option value="Orthopedics" style="font-size: small;color: black" >Orthopedics</option>
+                    <option value="Oncology" style="font-size: small;color: black" >Oncology</option>
+                    <option value="Ophthalmologist" style="font-size: small;color: black" >Ophthalmologist</option>
+                    <option value="otolaryngologist" style="font-size: small;color: black" >Otolaryngologist</option>
+                </select>
+            </label>
+        </div>
+        <div class="box">
+            <label for="bloodgroup">Blood Group</label>
+            <select id="bloodgroup" style="margin-left: 60px" name="bloodgroup" th:field="*{bloodgroup}" required>
+                <option value="Not Selected" selected style="color: black; font-size: medium">Select Blood Group</option>
+                <option value="A+" style="color: black; font-size: medium">A+</option>
+                <option value="A-" style="color: black; font-size: medium">A-</option>
+                <option value="B+" style="color: black; font-size: medium">B+</option>
+                <option value="B-" style="color: black; font-size: medium">B-</option>
+                <option value="O+" style="color: black; font-size: medium">O+</option>
+                <option value="O-" style="color: black; font-size: medium">O-</option>
+                <option value="AB+" style="color: black; font-size: medium">AB+</option>
+                <option value="AB-" style="color: black; font-size: medium">AB-</option>
+            </select>
+        </div>
+        <div class="box">
+            <label for="bloodpressure">Blood Pressure</label>
+            <select id="bloodpressure" style="margin-left: 48px" name="bloodpressure" th:field="*{bloodpressure}" required>
+                <option value="Not Selected" selected style="color: black; font-size: medium">Blood Pressure</option>
+                <option value="normal" style="color: black; font-size: medium">Normal</option>
+                <option value="high" style="color: black; font-size: medium">High</option>
+                <option value="low" style="color: black; font-size: medium">Low</option>
+            </select>
+            <div class="box">
+                <label for="bloodsugar"> Blood Sugar
+                    <input style="margin-left: 60px" type="text" name="bloodsugar" id="bloodsugar" th:field="*{bloodsugar}" size="35px">
+                </label>
+            </div>
+            <div class="box">
+                <label for="condition">Patient Condition</label>
+                <select id="condition" style="margin-left: 29px" name="patientcondition" th:field="*{patientcondition}" required>
+                    <option value="Not Selected" selected style="color: black; font-size: medium">Patient Condition</option>
+                    <option value="good" style="color: black; font-size: medium">Good</option>
+                    <option value="average" style="color: black; font-size: medium">Average</option>
+                    <option value="poor" style="color: black; font-size: medium">Poor</option>
+                </select>
+            </div>
+            <button class="btn" onclick="submit()">Submit</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

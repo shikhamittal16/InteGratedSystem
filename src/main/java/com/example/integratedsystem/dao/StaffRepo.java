@@ -17,4 +17,8 @@ public interface StaffRepo extends CrudRepository<Staff,Integer> {
 
     @Query("SELECT u FROM Staff u WHERE u.name = ?1 AND u.loginId = ?2 AND u.password = ?3")
     Staff findByNameLoginIdAndPassword(String name , String loginId , String password);
+
+    @Query("SELECT u FROM Staff u WHERE u.position like 'receptionist'")
+    List<Staff> searchAllReceptionist(String name);
+
 }

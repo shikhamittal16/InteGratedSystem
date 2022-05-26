@@ -38,15 +38,13 @@
             width: 280px;
         }
         select{
-            text-align: center;
             width: 280px;
             background-color : #F7F7F7!important;
+            text-align: center;
             color: blue;
-            height: 20px;
-            border-top: none;
-            border-left: none;
             border-right: none;
-            border-bottom: 1px solid black;
+            border-left: none;
+            border-top: none;
         }
         .btn
         {
@@ -81,17 +79,24 @@
     </script>
 </head>
 <body>
-<form th:action="@{back}">
+<form th:action="@{backToSpecificPage}">
     <button class="btn2">&#8592;Back</button>
 </form>
 <div th:if="${msg}" class="successfull-msg">[[${msg}]]</div>
 <div class="container">
     <h3>My Profile</h3>
     <form action="#" th:action="@{editMyProfile}" th:object="${data}">
+        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{emailId}">
+        <input type="hidden" th:field="*{aadharId}">
         <div class="box">
             <label for="firstName"> Full Name
                 <input type="text" style="margin-left: 50px" class="input" th:field="*{name}" name="name" id="firstName" size="25px" required readonly>
             </label>
+        </div>
+        <div class="box">
+                <input type="hidden" style="margin-left: 50px" class="input" th:field="*{gender}" name="name" id="gender" size="25px" required readonly>
+                <input type="hidden" style="margin-left: 50px" class="input" th:field="*{specialization}" name="name" id="specialization" size="25px" required readonly>
         </div>
         <div class="box">
             <label for="qualification"> Qualification
@@ -148,10 +153,20 @@
                 <input style="margin-left: 39px; text-align: center"  type="text" th:field="*{joiningDate}" name="joiningDate" required readonly id="joining"  size="25px">
             </label>
         </div>
-
+        <div class="box">
+            <label for="timings"> Timings
+                <select name="timings" id="timings" style="width: 280px; margin-left: 75px" required th:field="*{timings}">
+                    <option value="not selected">Not Selected</option>
+                    <option value="9am - 5pm">9am - 5pm</option>
+                    <option value="10am - 6pm">10am - 6pm</option>
+                    <option value="2pm - 10pm">2pm - 10pm</option>
+                    <option value="10pm - 4am">10pm - 4am</option>
+                </select>
+            </label>
+        </div>
         <div class="box">
             <label for="availability"> Available or Not
-            <select name="availability" id="availability" style="margin-left: 10px" required>
+            <select name="availability" id="availability" style="margin-left: 10px" th:field="*{availability}" required>
                 <option value="Available">Available</option>
                 <option value="Not Available">Not Available</option>
             </select>

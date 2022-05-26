@@ -103,4 +103,14 @@ public class receptionistController {
     public String backToReceptionPage(){
        return "receptionistHomePage.html";
     }
+
+    @RequestMapping("/editPatientInfo")
+    public String editPatientInfo(Patient patient){
+        try{
+           repo2.save(patient);
+           return "redirect:/patient_detail";
+        }catch(Exception ex){
+            throw ex;
+        }
+    }
 }
