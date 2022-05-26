@@ -22,4 +22,10 @@ public interface DoctorRepo extends CrudRepository<Doctor, Integer> {
 
     @Query("SELECT u FROM Doctor u WHERE u.name = ?1 AND u.loginId = ?2 AND u.password = ?3")
     Doctor findByNameLoginIdAndPassword(String name , String loginId , String password);
+
+    @Query("SELECT u FROM Doctor u where u.name = ?1 AND u.specialization = ?2")
+    Doctor searchByDoctorNameAndDepartment(String name , String department);
+
+    @Query("SELECT u FROM Doctor u where u.specialization = ?1")
+    List<Doctor> searchDoctorByDepartment(String department);
 }

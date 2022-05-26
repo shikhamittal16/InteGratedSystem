@@ -47,16 +47,14 @@
     <div class="card-body">
         <table class="filter-table">
             <tr>
-                <form th:action="@{searchDoctorByName}">
+                <form th:action="@{searchDoctorByNameAndDepartment}">
                     <td>
-                        <input type="search" name="name" placeholder="Enter Doctor Name" class="form-control filters" required/>
+                        <input type="search" name="name" placeholder="Enter Doctor Name" class="form-control filters"/>
                     </td>
-                </form>
-                <form th:action="@{searchByDepartment}">
                     <td>
                         <div class="Input">
-                            <select name="department" id="dept"class="form-control filters" required>>
-                                <option value="Not Selected" style="font-size: small" selected>Search By Department</option>
+                            <select name="department" id="dept"class="form-control filters" >
+                                <option value="" style="font-size: small" selected>Search By Department</option>
                                 <option value="cardiology" style="font-size: small" >Cardiology</option>
                                 <option value="Nephrology and Urology" style="font-size: small" >Nephrology and Urology</option>
                                 <option value="Neurology" style="font-size: small" >Neurology</option>
@@ -70,8 +68,8 @@
                     </td>
                     <td>
                         <div class="Input">
-                            <select name="department" id="issue"class="form-control filters" required>>
-                                <option value="Not Selected" style="font-size: small" selected>Search By Disorder</option>
+                            <select name="disorder" id="issue"class="form-control filters">
+                                <option value="" style="font-size: small" selected>Search By Disorder</option>
                                 <option value="cardiology" style="font-size: small" >Heart Problem</option>
                                 <option value="Nephrology and Urology" style="font-size: small" >Kidney Problem</option>
                                 <option value="Neurology" style="font-size: small" >Nervous System Problem(headaches , multiple sclerosis , movement disorders. etc)</option>
@@ -107,7 +105,7 @@
     </tr>
     </thead>
     <tbody>
-    <th:block th:each="list : ${doctorListForReceptionHomePage}">
+    <th:block th:each="list : ${list}">
     <tr>
         <td th:text="${list.name}"></td>
         <td th:text="${list.qualification}"></td>

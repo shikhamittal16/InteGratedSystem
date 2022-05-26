@@ -94,7 +94,7 @@ public class receptionistController {
 
     @RequestMapping("/drInfoAtReceptionHomePage")
     public String drInfoAtReceptionHomePage(Model model){
-        model.addAttribute("doctorListForReceptionHomePage", repo3.findAll());
+        model.addAttribute("list", repo3.findAll());
         return "DrInfoAtReceptionHomePage.html";
     }
 }

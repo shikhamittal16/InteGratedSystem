@@ -161,6 +161,36 @@ public class commonController {
         ra.addFlashAttribute("msg", "Information has been Saved Successfully");
         return "redirect:/myProfile";
     }
+
+    @RequestMapping("/searchDoctorByNameAndDepartment")
+    public String searchDoctorByNameAndDepartment(Model model ,@Param("name") String name , @Param("department") String department , @Param("disorder") String disorder){
+        if(department != "" && name != null){
+            model.addAttribute("list" , repo3.searchByDoctorNameAndDepartment(name , department));
+        }
+        if(disorder!= "" && name != null){
+            model.addAttribute("list", repo3.searchByDoctorNameAndDepartment(name , disorder));
+        }
+
+        if(name != null && department == "" && disorder == ""){
+            model.addAttribute("list", repo3.searchDoctorByName(name));
+        }
+        if(department != "" && name == null && disorder == ""){
+            model.addAttribute("list" , repo3.searchDoctorByDepartment(department));
+        }
+        if(disorder != "" && name == null && department == ""){
+            model.addAttribute("list" , repo3.searchDoctorByDepartment(disorder));
+        }
+        if(name == null && department != "" && disorder != ""){
+            model.addAttribute("list" , repo3.searchDoctorByDepartment(department));
+        }
+        if(name != null && disorder != "" && department != ""){
+            model.addAttribute("list" , repo3.searchByDoctorNameAndDepartment(name , department));
+        }
+        else if(name == null && disorder == "" && department == ""){
+            model.addAttribute("list" , repo3.findAll());
+        }
+        return "DrInfoAtReceptionHomePage.html";
+    }
 }
 
 
