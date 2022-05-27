@@ -65,7 +65,10 @@
     </style>
 </head>
 <body>
-<form action="#" th:action="@{/assistantOrNurseInfoSave}" method="post" th:object="${data}">
+<form th:action="@{back}">
+    <button class="btn2">&#8592;Back</button>
+</form>
+<form action="#" th:action="@{/assistantInfoSave}" method="post" th:object="${data}">
     <div th:if="${msg}" class="alert alert-success text-center">[[${msg}]]</div>
     <div th:if="${msg2}" class="alert alert-danger text-center">[[${msg2}]]</div>
     <div class="container">
@@ -140,6 +143,11 @@
         <div class="box">
             <label for="specialization"> Specialization
                 <input style="margin-left: 19px; text-align: center" type="text"  th:field="*{specialization}" name="specialization" id="specialization"  size="25px" required>
+            </label>
+        </div>
+        <div class="box">
+            <label for="salary"> Salary
+                <input style="margin-left: 83px" type="text" class="input" name="salary" id="salary" th:field="*{salary}"  size="25px" required>
             </label>
         </div>
         <div class="box">

@@ -221,6 +221,8 @@
     </style>
 </head>
 <body>
+<div th:if="${msg}" class="alert alert-success text-center">[[${msg}]]</div>
+<div th:if="${msg2}" class="alert alert-danger text-center">[[${msg2}]]</div>
 <div class="container1">
     <form th:action="@{login}" method="post">
         <div class="login">
@@ -264,7 +266,7 @@
                 </select>
             </div>
             <div class="Input">
-                <input type="text" name="aadharNo" placeholder="Aadhar No" size="30px" style="text-align: center;color: green; border-radius: 10px; border: 1px solid blue" maxlength="12" minlength="12" required>
+                <input type="text" name="aadharno" placeholder="Aadhar No" size="30px" style="text-align: center;color: green; border-radius: 10px; border: 1px solid blue" maxlength="12" minlength="12" required>
             </div>
             <button class="submit">Book Appointment</button>
         </div>

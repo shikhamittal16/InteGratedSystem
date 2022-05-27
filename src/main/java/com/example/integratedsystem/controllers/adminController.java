@@ -38,6 +38,8 @@ public class adminController {
     private AssistantRepo repo6;
     @Autowired
     private StaffRepo repo7;
+    @Autowired
+    private HospitalResourcesDao repo8;
 
     @RequestMapping("/home")
     public String adminHomePage(){
@@ -248,8 +250,9 @@ public class adminController {
     }
 
     @RequestMapping("/hospitalResources")
-    public String getHospitalResources(){
+    public String getHospitalResources(Model model){
         try {
+            model.addAttribute("list",repo8.findAll());
             return "HospitalResources.html";
         }catch(Exception ex){
             throw ex;
@@ -291,16 +294,6 @@ public class adminController {
         try {
             model.addAttribute("list", repo6.findAll());
             return "AssistantList.html";
-        }catch(Exception ex){
-            throw ex;
-        }
-    }
-
-    @RequestMapping("/assistantInfoSave")
-    public String saveAssistantInfo(Assistant assistant){
-        try {
-            repo6.save(assistant);
-            return "redirect:/newNurse";
         }catch(Exception ex){
             throw ex;
         }
@@ -361,6 +354,29 @@ public class adminController {
     public String findAllReceptionist(Model model){
         model.addAttribute("list" , repo7.searchAllReceptionist("receptionist"));
         return "ReceptionistList.html";
+    }
+
+    @RequestMapping("/nurseInfoSave")
+    public String saveNurseInformation(Nurse nurse , RedirectAttributes ra){
+        try{
+            repo5.save(nurse);
+            ra.addFlashAttribute("msg", "Nurse Information has been Saved Successfully");
+            return "redirect:/newNurse";
+        }catch(Exception ex){
+            ra.addFlashAttribute("msg2" , "Something went Wrong");
+            return "redirect:/newNurse";
+        }
+    }
+    @RequestMapping("/assistantInfoSave")
+    public String assistantInfoSave(Assistant assistant , RedirectAttributes ra){
+        try{
+            repo6.save(assistant);
+            ra.addFlashAttribute("msg", "Assistant Information has been Saved Successfully");
+            return "redirect:/newAssistant";
+        }catch(Exception ex){
+            ra.addFlashAttribute("msg2" , "Something went Wrong");
+            return "redirect:/newAssistant";
+        }
     }
 
 }

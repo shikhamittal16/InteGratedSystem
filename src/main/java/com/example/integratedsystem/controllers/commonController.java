@@ -1,10 +1,7 @@
 package com.example.integratedsystem.controllers;
 
+import com.example.integratedsystem.Entities.*;
 import com.example.integratedsystem.dao.*;
-import com.example.integratedsystem.Entities.Admin;
-import com.example.integratedsystem.Entities.Patient;
-import com.example.integratedsystem.Entities.Staff;
-import com.example.integratedsystem.Entities.Doctor;
 import org.aspectj.lang.annotation.RequiredTypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -247,10 +244,28 @@ public class commonController {
         return "editPatientDetails.html";
     }
 
-//    @RequestMapping("/assistantOrNurseInfoSave")
-//    public String saveAssistantOrNurseInfo(){
-//
-//    }
+    @RequestMapping("/backToReceptionPageOrWebsite")
+    public String saveAssistantOrNurseInfo(){
+         if(loginId != null){
+             return "receptionistHomePage.html";
+         }
+         else{
+             return "website.html";
+         }
+    }
+
+    @RequestMapping("/saveOnlineAppointment")
+    public String saveOnlineAppointment(Appointment appointment , RedirectAttributes ra){
+        try{
+            repo1.save(appointment);
+            ra.addFlashAttribute("msg" , "Your Appointment Is Scheduled , For Further Info" +
+                    "rmation please contact us on 91-8274852621");
+            return "redirect:/website";
+        }catch(Exception ex){
+            ra.addFlashAttribute("msg2" , "Something went wrong");
+            return "redirect:/website";
+        }
+    }
 
 }
 

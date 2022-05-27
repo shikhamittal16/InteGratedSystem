@@ -22,15 +22,6 @@
 
         tr:nth-child(even){background-color: #f2f2f2}
 
-        th {
-            background-color: black;
-            color: #F0F8FF;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            font-weight: lighter;
-            font-size: large;
-        }
-
     </style>
 </head>
 <body>
@@ -38,8 +29,8 @@
     <div class="content-header">
         <h1>Assistant's Information</h1>
     </div>
-    <table>
-        <thead>
+    <table class="filter-table">
+        <thead style="background-color: lightgray">
         <tr>
             <td>Name</td>
             <td>E-Mail Id</td>
@@ -69,14 +60,14 @@
                 <td th:text="${list.dob}"></td>
                 <td th:text="${list.qualification}"></td>
                 <td th:text="${list.specialization}"></td>
-                <td th:text="${list.trainingDuration}"></td>
+                <td th:text="${list.trainingPeriod}"></td>
                 <td th:text="${list.mobileNo}"></td>
                 <td th:text="${list.aadharId}"></td>
                 <td th:text="${list.panId}"></td>
                 <td th:text="${list.address}"></td>
                 <td th:text="${list.city}"></td>
                 <td th:text="${list.state}"></td>
-                <td th:text="${list.doctorName}"></td>
+                <td th:text="${list.seniorName}"></td>
                 <td th:text="${list.joiningDate}"></td>
                 <td th:text="${list.timings}"></td>
                 <td th:text="${list.salary}"></td>

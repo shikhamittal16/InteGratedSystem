@@ -21,6 +21,8 @@ public class HospitalResources {
     private String quantity;
     @Column(nullable = false)
     private String managedBy;
+    @Column(nullable = false)
+    private String contactNo;
 
 }
 
