@@ -26,6 +26,10 @@ public class commonController {
     private StaffRepo repo4;
     @Autowired
     private AdminRepo repo5;
+    @Autowired
+    private AssistantRepo repo6;
+    @Autowired
+    private NurseRepo repo7;
     private String name;
     private String loginId;
     private String password;
@@ -266,6 +270,31 @@ public class commonController {
             return "redirect:/website";
         }
     }
+
+    @RequestMapping("/doctorAssistantDetails")
+    public String doctorAssistantDetails(Model model){
+        if(loginId != null) {
+            if (loginId.startsWith("dr")) {
+                model.addAttribute("assistantlist", repo6.fetchAssistantDetailsByDoctorName(name));
+                model.addAttribute("nurselist", repo7.fetchNurseDetailsByDoctorName(name));
+                return "AssistantDetails.html";
+            }
+            else{
+                return "AssistantDetails.html";
+            }
+        }
+        else{
+            return "loginPage.html";
+        }
+    }
+
+    @RequestMapping("/fetchAssistantDetailsByFilter")
+    public String fetchAssistantDetailsByFilter(@Param("doctorName") String doctorName , Model model){
+        model.addAttribute("assistantlist" ,repo6.fetchAssistantDetailsByDoctorName(doctorName));
+        model.addAttribute("nurselist", repo7.fetchNurseDetailsByDoctorName(doctorName));
+        return "AssistantDetails.html";
+    }
+
 
 }
 

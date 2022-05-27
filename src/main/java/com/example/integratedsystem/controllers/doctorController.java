@@ -33,16 +33,6 @@ public class doctorController {
         return "appointmentDetails.html";
     }
 
-    @RequestMapping("/doctorAssistantDetails")
-    public String doctorAssistantDetails(Model model){
-        return "doctorAssistantDetails.html";
-    }
 
-    @RequestMapping("/fetchAssistantDetailsByFilter")
-    public String fetchAssistantDetailsByFilter(@Param("doctorName") String doctorName , Model model){
-        model.addAttribute("list" ,repo2.fetchAssistantDetailsByDoctorName(doctorName));
-        model.addAttribute("list", repo3.fetchNurseDetailsByDoctorName(doctorName));
-        return "doctorAssistantDetails.html";
-    }
 
 }

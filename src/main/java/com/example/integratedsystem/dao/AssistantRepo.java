@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AssistantRepo extends CrudRepository<Assistant , String> {
 
-    @Query("SELECT u from Assistant u WHERE u.seniorName = ?1")
+    @Query("SELECT u from Assistant u WHERE u.seniorName like %?1%")
     Assistant fetchAssistantDetailsByDoctorName(String doctorName);
 }

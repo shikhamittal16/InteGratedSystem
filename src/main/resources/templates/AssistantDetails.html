@@ -3,7 +3,7 @@
 <link rel="stylesheet" th:href="commonStyle.css">
 <head>
     <meta charset="UTF-8">
-    <title>Doctor's Informations</title>
+    <title>Assistant & Nurse Details</title>
     <style>
         body{
             background-color : #F7F7F7!important;
@@ -38,20 +38,20 @@
     <div class="content-header">
         <h1>Assistant & Nurse Details</h1>
     </div>
-<div class="card-body">
-    <table class="filter-table">
-        <tr>
-            <form th:action="@{fetchAssistantDetailsByFilter}">
-                <td>
-                    <input type="search" name="doctorName" placeholder="Enter Doctor Name" class="form-control filters" required/>
-                </td>
-                <td class="text-right">
-                    <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
-                </td>
-            </form>
-        </tr>
-    </table>
-</div>
+    <div class="card-body">
+        <table class="filter-table">
+            <tr>
+                <form th:action="@{fetchAssistantDetailsByFilter}">
+                    <td>
+                        <input type="search" name="doctorName" placeholder="Enter Doctor Name" class="form-control filters" required/>
+                    </td>
+                    <td class="text-right">
+                        <button  id="fetchData" type="search" class="btn btn-save">Apply</button>
+                    </td>
+                </form>
+            </tr>
+        </table>
+    </div>
     <table>
         <thead>
         <tr>
@@ -65,23 +65,35 @@
             <th>Address</th>
             <th>City</th>
             <th>State</th>
-            <th>Available or Not</th>
         </tr>
         </thead>
         <tbody>
-        <th:block th:each="list : ${list}">
+        <th:block th:each="list : ${assistantlist}">
             <tr>
                 <td th:text="${list.name}"></td>
-                <td th:text="${list.mobileNumber}"></td>
+                <td th:text="${list.mobileNo}"></td>
                 <td th:text="${list.qualification}"></td>
                 <td th:text="${list.specialization}"></td>
                 <td th:text="${list.emailId}"></td>
-                <td th:text="${list.aadharNo}"></td>
-                <td th:text="${list.panCardNumber}"></td>
+                <td th:text="${list.aadharId}"></td>
+                <td th:text="${list.panId}"></td>
                 <td th:text="${list.address}"></td>
                 <td th:text="${list.city}"></td>
                 <td th:text="${list.state}"></td>
-                <td th:text="${list.availability}"></td>
+            </tr>
+        </th:block>
+        <th:block th:each="list : ${nurselist}">
+            <tr>
+                <td th:text="${list.name}"></td>
+                <td th:text="${list.mobileNo}"></td>
+                <td th:text="${list.qualification}"></td>
+                <td th:text="${list.specialization}"></td>
+                <td th:text="${list.emailId}"></td>
+                <td th:text="${list.aadharId}"></td>
+                <td th:text="${list.panId}"></td>
+                <td th:text="${list.address}"></td>
+                <td th:text="${list.city}"></td>
+                <td th:text="${list.state}"></td>
             </tr>
         </th:block>
         </tbody>
