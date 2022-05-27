@@ -10,4 +10,7 @@ public interface AppointmentRepo extends CrudRepository<Appointment, Integer> {
 
     @Query("SELECT u FROM Appointment u WHERE u.firstname = ?1")
     List<Appointment> findByName(String name);
+
+    @Query("SELECT u FROM Appointment u WHERE u.doctorname like %?1%")
+    List<Appointment> searchAppointmentByDoctorName(String doctorName);
 }

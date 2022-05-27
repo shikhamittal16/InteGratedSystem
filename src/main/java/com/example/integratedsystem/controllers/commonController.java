@@ -47,8 +47,22 @@ public class commonController {
 
     @RequestMapping("/app_details")
     public String getAppointmentDetails(Model model){
-        model.addAttribute("list",repo1.findAll());
-        return "appointmentDetails.html";
+        if(loginId != null) {
+            if(loginId.startsWith("recep")) {
+                model.addAttribute("list", repo1.findAll());
+                return "appointmentDetails.html";
+            }
+            else if(loginId.startsWith("dr")){
+                model.addAttribute("list" , repo1.searchAppointmentByDoctorName(name));
+                return "appointmentDetails.html";
+            }
+            else{
+                return "loginPage.html";
+            }
+        }
+        else{
+            return "loginPage.html";
+        }
     }
 
     @RequestMapping("/patient_detail")
