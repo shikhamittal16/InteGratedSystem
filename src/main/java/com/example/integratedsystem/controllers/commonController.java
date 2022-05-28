@@ -29,6 +29,8 @@ public class commonController {
     @Autowired
     private AssistantRepo repo6;
     @Autowired
+    private OnlineAppointmentRepo repo8;
+    @Autowired
     private NurseRepo repo7;
     private String name;
     private String loginId;
@@ -51,10 +53,12 @@ public class commonController {
         if(loginId != null) {
             if(loginId.startsWith("recep")) {
                 model.addAttribute("list", repo1.findAll());
+                model.addAttribute("onlinelist", repo8.findAll());
                 return "appointmentDetails.html";
             }
             else if(loginId.startsWith("dr")){
                 model.addAttribute("list" , repo1.searchAppointmentByDoctorName(name));
+                model.addAttribute("onlinelist" , repo8.searchAppointmentByDoctorName(name));
                 return "appointmentDetails.html";
             }
             else{
@@ -259,12 +263,18 @@ public class commonController {
     }
 
     @RequestMapping("/saveOnlineAppointment")
-    public String saveOnlineAppointment(Appointment appointment , RedirectAttributes ra){
+    public String saveOnlineAppointment(OnlineAppointment appointment , RedirectAttributes ra , @Param("department") String department){
         try{
-            repo1.save(appointment);
-            ra.addFlashAttribute("msg" , "Your Appointment Is Scheduled , For Further Info" +
-                    "rmation please contact us on 91-8274852621");
-            return "redirect:/website";
+            if(department != "" ) {
+                repo8.save(appointment);
+                ra.addFlashAttribute("msg", "Your Appointment Is Scheduled , For Further Info" +
+                        "rmation please contact us on 91-8274852621");
+                return "redirect:/website";
+            }
+            else{
+                ra.addFlashAttribute("msg2" , "Please Enter Department First");
+                return "redirect:/website";
+            }
         }catch(Exception ex){
             ra.addFlashAttribute("msg2" , "Something went wrong");
             return "redirect:/website";

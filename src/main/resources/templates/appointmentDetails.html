@@ -82,6 +82,20 @@
                 <td th:text="${list.fees}"></td>
             </tr>
         </th:block>
+        <th:block th:each="list : ${onlinelist}">
+            <tr>
+                <td th:text="${list.firstname}"></td>
+                <td th:text="${list.lastname}"></td>
+                <td th:text="${list.age}"></td>
+                <td th:text="${list.gender}"></td>
+                <td th:text="${list.phn}"></td>
+                <td th:text="${list.doctorname}"></td>
+                <td th:text="${list.department}"></td>
+                <td th:text="${list.aadharno}"></td>
+                <td th:text="${list.date}"></td>
+                <td th:text="${list.fees}"></td>
+            </tr>
+        </th:block>
         </tbody>
     </table>
 </div>

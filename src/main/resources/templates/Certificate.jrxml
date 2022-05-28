@@ -34,7 +34,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="Algerian" size="24"/>
 				</textElement>
-				<text><![CDATA[CERTIFICATE OF DONAR]]></text>
+				<text><![CDATA[CERTIFICATE OF DONOR]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="1" y="180" width="560" height="44" uuid="eedb1a24-6172-4353-9910-94d4c4e538d6">
